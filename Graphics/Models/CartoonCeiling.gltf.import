@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cm7pws88r2nhq"
-path="res://.godot/imported/ControllerArm.gltf-c2f8b93da06e311a236835a81c39e42b.scn"
+uid="uid://cm0xpbv6mbl1l"
+path="res://.godot/imported/CartoonCeiling.gltf-510daed9be214328371eeecba5052836.scn"
 
 [deps]
 
-source_file="res://Graphics/Models/ControllerArm.gltf"
-dest_files=["res://.godot/imported/ControllerArm.gltf-c2f8b93da06e311a236835a81c39e42b.scn"]
+source_file="res://Graphics/Models/CartoonCeiling.gltf"
+dest_files=["res://.godot/imported/CartoonCeiling.gltf-510daed9be214328371eeecba5052836.scn"]
 
 [params]
 

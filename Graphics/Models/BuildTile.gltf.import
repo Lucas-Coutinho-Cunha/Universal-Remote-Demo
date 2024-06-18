@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cm7pws88r2nhq"
-path="res://.godot/imported/ControllerArm.gltf-c2f8b93da06e311a236835a81c39e42b.scn"
+uid="uid://byitrs1k0pnb6"
+path="res://.godot/imported/BuildTile.gltf-58f3e56a12cb484abfa72ceb4b8ba243.scn"
 
 [deps]
 
-source_file="res://Graphics/Models/ControllerArm.gltf"
-dest_files=["res://.godot/imported/ControllerArm.gltf-c2f8b93da06e311a236835a81c39e42b.scn"]
+source_file="res://Graphics/Models/BuildTile.gltf"
+dest_files=["res://.godot/imported/BuildTile.gltf-58f3e56a12cb484abfa72ceb4b8ba243.scn"]
 
 [params]
 

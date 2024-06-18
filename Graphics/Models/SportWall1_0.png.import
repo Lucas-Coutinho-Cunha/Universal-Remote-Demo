@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d3rcw35m38vdp"
-path.bptc="res://.godot/imported/ControllerArm_0.png-558b1f987012ced0e102ee623e861f8e.bptc.ctex"
+uid="uid://b6mil6adperud"
+path.bptc="res://.godot/imported/SportWall1_0.png-9979d23ded982d87aa2e5ecccd2e1ac5.bptc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "b19ac0feb4fc3e398e1252e345b64eb7"
+"md5": "3b85a51ec3c72d5c351e9f99e47844bf"
 }
 
 [deps]
 
-source_file="res://Graphics/Models/ControllerArm_0.png"
-dest_files=["res://.godot/imported/ControllerArm_0.png-558b1f987012ced0e102ee623e861f8e.bptc.ctex"]
+source_file="res://Graphics/Models/SportWall1_0.png"
+dest_files=["res://.godot/imported/SportWall1_0.png-9979d23ded982d87aa2e5ecccd2e1ac5.bptc.ctex"]
 
 [params]
 

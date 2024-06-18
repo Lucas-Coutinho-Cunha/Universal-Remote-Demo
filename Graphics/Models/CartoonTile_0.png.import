@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d3rcw35m38vdp"
-path.bptc="res://.godot/imported/ControllerArm_0.png-558b1f987012ced0e102ee623e861f8e.bptc.ctex"
+uid="uid://deict2fw3lovc"
+path.bptc="res://.godot/imported/CartoonTile_0.png-8477d50cc973bbb354703bd7250c5842.bptc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "b19ac0feb4fc3e398e1252e345b64eb7"
+"md5": "f438e4232ab5a799d9bb162aa29a8132"
 }
 
 [deps]
 
-source_file="res://Graphics/Models/ControllerArm_0.png"
-dest_files=["res://.godot/imported/ControllerArm_0.png-558b1f987012ced0e102ee623e861f8e.bptc.ctex"]
+source_file="res://Graphics/Models/CartoonTile_0.png"
+dest_files=["res://.godot/imported/CartoonTile_0.png-8477d50cc973bbb354703bd7250c5842.bptc.ctex"]
 
 [params]
 

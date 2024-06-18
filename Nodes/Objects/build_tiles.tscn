@@ -1,0 +1,25 @@
+[gd_scene load_steps=8 format=3 uid="uid://c0gp3olod7he5"]
+
+[ext_resource type="PackedScene" uid="uid://djwqlrhmqdd5c" path="res://Nodes/Objects/build_ceil.tscn" id="1_d0hsx"]
+[ext_resource type="PackedScene" uid="uid://b2ljq5cyt5sr" path="res://Nodes/Objects/build_post.tscn" id="2_e6eai"]
+[ext_resource type="PackedScene" uid="uid://ci07t8gtal3r0" path="res://Nodes/Objects/build_tile.tscn" id="3_jt56v"]
+[ext_resource type="PackedScene" uid="uid://ddp5eaq4mwbfk" path="res://Nodes/Objects/build_wall_1.tscn" id="4_e5y45"]
+[ext_resource type="PackedScene" uid="uid://b4hncm6xeofti" path="res://Nodes/Objects/build_wall_2.tscn" id="5_w7skj"]
+[ext_resource type="PackedScene" uid="uid://5y5r1jge242b" path="res://Nodes/Objects/build_wall_3.tscn" id="6_flxpo"]
+[ext_resource type="PackedScene" uid="uid://cd6o73igk51v6" path="res://Nodes/Objects/build_wall_4.tscn" id="7_0iqw6"]
+
+[node name="BuildTiles" type="Node3D"]
+
+[node name="BuildCeil" parent="." instance=ExtResource("1_d0hsx")]
+
+[node name="BuildPost" parent="." instance=ExtResource("2_e6eai")]
+
+[node name="BuildTile" parent="." instance=ExtResource("3_jt56v")]
+
+[node name="BuildWall1" parent="." instance=ExtResource("4_e5y45")]
+
+[node name="BuildWall2" parent="." instance=ExtResource("5_w7skj")]
+
+[node name="BuildWall3" parent="." instance=ExtResource("6_flxpo")]
+
+[node name="BuildWall4" parent="." instance=ExtResource("7_0iqw6")]

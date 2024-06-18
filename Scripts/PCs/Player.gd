@@ -19,10 +19,14 @@ var gravity : float = 9.8
 
 @onready var head = $Head
 @onready var camera = $Head/Camera3D
-@onready var hand = $Head/ControllerHand
-@onready var hand_anim = $Head/ControllerHand/AnimationPlayer
-@onready var power_sfx = $Head/ControllerHand/power_sfx
-@onready var channel_sfx = $Head/ControllerHand/channel_sfx
+@onready var hand_anim = $Head/Camera3D/Arm/AnimationPlayer
+@onready var power_sfx = $Head/Camera3D/Arm/power_sfx
+@onready var channel_sfx = $Head/Camera3D/Arm/channel_sfx
+@onready var burunyuu_sfx = $Head/Camera3D/Arm/burunyuu_sfx
+
+# TEXTURES
+
+var texture_state = 1
 
 
 func _ready():
@@ -33,7 +37,7 @@ func _unhandled_input(event):
 	if event is InputEventMouseMotion:
 		head.rotate_y(-event.relative.x * SENSITIVITY)
 		camera.rotate_x(-event.relative.y * SENSITIVITY)
-		hand.rotate_x(-event.relative.y * SENSITIVITY)
+
 		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-50), deg_to_rad(80))
 
 
@@ -82,14 +86,19 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("M1"):
 		if !hand_anim.is_playing():
 			hand_anim.play("PowerButtonPress")
-			power_sfx.play()
+			burunyuu_sfx.play()
 			
-		
 	elif Input.is_action_just_pressed("M2"):
 		if !hand_anim.is_playing():
 			hand_anim.play("ChannelButtonAnimation")
 			channel_sfx.play()
-
+			#Global.channel_state += 1
+	
+	if Input.is_action_just_pressed("texture"):
+		if texture_state < 3:
+			texture_state += 1
+		else:
+			texture_state = 0
 
 	move_and_slide()
 

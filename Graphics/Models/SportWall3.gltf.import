@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cm7pws88r2nhq"
-path="res://.godot/imported/ControllerArm.gltf-c2f8b93da06e311a236835a81c39e42b.scn"
+uid="uid://c3j5qmnw010f2"
+path="res://.godot/imported/SportWall3.gltf-5da4994d3cf33ba8c832d32afb8166fb.scn"
 
 [deps]
 
-source_file="res://Graphics/Models/ControllerArm.gltf"
-dest_files=["res://.godot/imported/ControllerArm.gltf-c2f8b93da06e311a236835a81c39e42b.scn"]
+source_file="res://Graphics/Models/SportWall3.gltf"
+dest_files=["res://.godot/imported/SportWall3.gltf-5da4994d3cf33ba8c832d32afb8166fb.scn"]
 
 [params]
 

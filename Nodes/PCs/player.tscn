@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://drkcoyvm8ubkv"]
+[gd_scene load_steps=8 format=3 uid="uid://drkcoyvm8ubkv"]
 
 [ext_resource type="Script" path="res://Scripts/PCs/Player.gd" id="1_dtsbk"]
-[ext_resource type="PackedScene" uid="uid://c5mf5vopsn7rx" path="res://Nodes/PCs/controller_hand.tscn" id="2_1y7rq"]
+[ext_resource type="PackedScene" uid="uid://bp4ckvo1qo0fa" path="res://Nodes/PCs/arm.tscn" id="2_pgpvo"]
 [ext_resource type="AudioStream" uid="uid://dm28pucffhuss" path="res://Audio/320181__dland__hint.ogg" id="3_mm75g"]
-[ext_resource type="AudioStream" uid="uid://cx8j0dewxi1hh" path="res://Audio/35291__jace__continuous-static.ogg" id="4_6rws1"]
+[ext_resource type="AudioStream" uid="uid://g5ng5cyxq3w8" path="res://Audio/channelflip.ogg" id="4_r4i6m"]
+[ext_resource type="AudioStream" uid="uid://cem2r4ku7r6m1" path="res://Audio/burunyuu.ogg" id="5_f02w4"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_4lwht"]
 radius = 0.4
@@ -25,14 +26,17 @@ shape = SubResource("ConvexPolygonShape3D_exu03")
 
 [node name="Head" type="Node3D" parent="."]
 
-[node name="ControllerHand" parent="Head" instance=ExtResource("2_1y7rq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.397387, -0.579006, -0.793486)
-
-[node name="power_sfx" type="AudioStreamPlayer" parent="Head/ControllerHand"]
-stream = ExtResource("3_mm75g")
-
-[node name="channel_sfx" type="AudioStreamPlayer" parent="Head/ControllerHand"]
-stream = ExtResource("4_6rws1")
-
 [node name="Camera3D" type="Camera3D" parent="Head"]
 far = 800.0
+
+[node name="Arm" parent="Head/Camera3D" instance=ExtResource("2_pgpvo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.451655, -0.601383, -1.06356)
+
+[node name="power_sfx" type="AudioStreamPlayer" parent="Head/Camera3D/Arm"]
+stream = ExtResource("3_mm75g")
+
+[node name="channel_sfx" type="AudioStreamPlayer" parent="Head/Camera3D/Arm"]
+stream = ExtResource("4_r4i6m")
+
+[node name="burunyuu_sfx" type="AudioStreamPlayer" parent="Head/Camera3D/Arm"]
+stream = ExtResource("5_f02w4")
