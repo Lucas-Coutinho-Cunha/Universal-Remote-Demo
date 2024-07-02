@@ -1,6 +1,7 @@
 extends CharacterBody3D
 
 var speed : float
+var gravity : float = 9.8
 const SPRINT_SPEED : float = 8.0
 const WALK_SPEED : float = 5.0
 const JUMP_VELOCITY : float = 7.5
@@ -15,33 +16,36 @@ var t_bob : float = 0.0
 const BASE_FOV : float = 75.0
 const FOV_CHANGE : float = 1.5
 
-var gravity : float = 9.8
-
-@onready var head = $Head
-@onready var camera = $Head/Camera3D
-@onready var hand_anim = $Head/Camera3D/Arm/AnimationPlayer
-@onready var power_sfx = $Head/Camera3D/Arm/power_sfx
-@onready var channel_sfx = $Head/Camera3D/Arm/channel_sfx
-@onready var burunyuu_sfx = $Head/Camera3D/Arm/burunyuu_sfx
-
-# TEXTURES
-
-var texture_state = 1
 
 
-func _ready():
+@onready var head := $Head
+@onready var camera := $Head/Camera3D
+@onready var hand_anim := $Head/Camera3D/Arm/AnimationPlayer
+@onready var power_sfx := $Head/Camera3D/Arm/power_sfx
+@onready var channel_sfx := $Head/Camera3D/Arm/channel_sfx
+@onready var burunyuu_sfx := $Head/Camera3D/Arm/burunyuu_sfx
+
+@onready var action_anim := $Head/Camera3D/Action_Arm/AnimationPlayer
+@onready var woosh_sfx := $Head/Camera3D/Action_Arm/woosh_sfx
+@onready var pizza_sfx := $Head/Camera3D/Action_Arm/pizza_sfx
+@onready var coil_sfx := $Head/Camera3D/Action_Arm/coil_sfx
+@onready var buildmap := $"../Map/Build/BuildGrid"
+@onready var sportmap := $"../Map/Sport/SportGrid"
+@onready var cartoonmap := $"../Map/Cartoon/CartoonGrid"
+
+
+func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 
-func _unhandled_input(event):
+func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		head.rotate_y(-event.relative.x * SENSITIVITY)
 		camera.rotate_x(-event.relative.y * SENSITIVITY)
-
 		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-50), deg_to_rad(80))
 
 
-func _physics_process(delta):
+func _physics_process(delta: float) -> void:
 
 	# PHYSICS HANDLING / MOVEMENT
 
@@ -57,8 +61,8 @@ func _physics_process(delta):
 	else:
 		speed = WALK_SPEED
 	
-	var input_dir = Input.get_vector("left", "right", "up", "down")
-	var direction = (head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	var input_dir := Input.get_vector("left", "right", "up", "down")
+	var direction : Vector3 = (head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	
 	if is_on_floor():
 		if direction:
@@ -75,9 +79,10 @@ func _physics_process(delta):
 	t_bob += delta * velocity.length() * float(is_on_floor())
 	camera.transform.origin = _headbob(t_bob)
 	
+	
 	#FOV
-	var velocity_clamped = clamp(velocity.length(), 0.5, SPRINT_SPEED * 2)
-	var target_fov = BASE_FOV + FOV_CHANGE * velocity_clamped
+	var velocity_clamped : float = clamp(velocity.length(), 0.5, SPRINT_SPEED * 2)
+	var target_fov := BASE_FOV + FOV_CHANGE * velocity_clamped
 	camera.fov = lerp(camera.fov, target_fov, delta * 8.0)
 
 
@@ -92,19 +97,58 @@ func _physics_process(delta):
 		if !hand_anim.is_playing():
 			hand_anim.play("ChannelButtonAnimation")
 			channel_sfx.play()
-			#Global.channel_state += 1
 	
-	if Input.is_action_just_pressed("texture"):
-		if texture_state < 3:
-			texture_state += 1
-		else:
-			texture_state = 0
+	if Input.is_action_just_pressed("test1"):
+		if !action_anim.is_playing():
+			action_anim.play("ThrowBaseball")
+			woosh_sfx.play()
+	elif Input.is_action_just_pressed("test2"):
+		if !action_anim.is_playing():
+			action_anim.play("ThrowDynamite")
+			pizza_sfx.play()
+	elif Input.is_action_just_pressed("test3"):
+		if !action_anim.is_playing():
+			action_anim.play("UseTrowel")
+			coil_sfx.play()
+
+	if Input.is_action_just_pressed("Ch1"):
+		if !hand_anim.is_playing():
+			buildmap.set_visible(true)
+			buildmap.collision_layer = 1
+			sportmap.set_visible(false)
+			sportmap.collision_layer = 2
+			cartoonmap.set_visible(false)
+			cartoonmap.collision_layer = 2
+			hand_anim.play("ChannelButtonAnimation")
+			channel_sfx.play()
+		
+	if Input.is_action_just_pressed("Ch2"):
+		if !hand_anim.is_playing():
+			buildmap.set_visible(false)
+			buildmap.collision_layer = 2
+			sportmap.set_visible(true)
+			sportmap.collision_layer = 1
+			cartoonmap.set_visible(false)
+			cartoonmap.collision_layer = 2
+			hand_anim.play("ChannelButtonAnimation")
+			channel_sfx.play()
+		
+	if Input.is_action_just_pressed("Ch3"):
+		if !hand_anim.is_playing():
+			buildmap.set_visible(false)
+			buildmap.collision_layer = 2
+			sportmap.set_visible(false)
+			sportmap.collision_layer = 2
+			cartoonmap.set_visible(true)
+			cartoonmap.collision_layer = 1
+			hand_anim.play("ChannelButtonAnimation")
+			channel_sfx.play()
 
 	move_and_slide()
 
 
-func _headbob(time) -> Vector3:
-	var pos = Vector3.ZERO
+func _headbob(time: float) -> Vector3:
+	var pos := Vector3.ZERO
 	pos.y = sin(time * BOB_FREQ) * BOB_AMP
 	pos.x = cos(time * BOB_FREQ / 2) * BOB_AMP
 	return pos

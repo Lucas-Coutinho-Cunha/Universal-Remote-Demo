@@ -13,6 +13,7 @@
 [node name="BuildCeil" parent="." instance=ExtResource("1_d0hsx")]
 
 [node name="BuildPost" parent="." instance=ExtResource("2_e6eai")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
 
 [node name="BuildTile" parent="." instance=ExtResource("3_jt56v")]
 
@@ -21,5 +22,6 @@
 [node name="BuildWall2" parent="." instance=ExtResource("5_w7skj")]
 
 [node name="BuildWall3" parent="." instance=ExtResource("6_flxpo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
 
 [node name="BuildWall4" parent="." instance=ExtResource("7_0iqw6")]

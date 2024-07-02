@@ -47,13 +47,16 @@ shadow_mesh = SubResource("ArrayMesh_4vgrb")
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_fwt2g"]
 points = PackedVector3Array(-0.75, -0.125, -0.25, -0.500024, -0.125, -0.25, -0.75, -0.125, -2.44677e-05, -0.75, 3.875, -0.25, 0.5, -0.125, -0.187598, -0.500024, 3.875, -0.25, -0.687598, -0.125, 1, -0.75, 3.875, -2.44677e-05, 0.5, 0.141249, -0.187598, 0.5, -0.125, 0.187427, 0.5, 3.875, -0.125073, -0.312573, -0.125, 1, -0.687598, 0.141249, 1, -0.625073, 3.875, 1, 0.5, 0.141249, 0.187427, 0.5, 3.875, 0.124902, -0.312573, 0.141249, 1, -0.375098, 3.875, 1)
 
-[node name="BuildWall3" type="StaticBody3D"]
+[node name="BuildWall3" type="Node3D"]
 
 [node name="BuildWall3" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.125, 0)
 mesh = SubResource("ArrayMesh_t546q")
 skeleton = NodePath("")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="BuildWall3" type="StaticBody3D" parent="BuildWall3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, -0.125, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BuildWall3/BuildWall3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.125, 0)
 shape = SubResource("ConvexPolygonShape3D_fwt2g")

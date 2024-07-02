@@ -1,10 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://drkcoyvm8ubkv"]
+[gd_scene load_steps=12 format=3 uid="uid://drkcoyvm8ubkv"]
 
 [ext_resource type="Script" path="res://Scripts/PCs/Player.gd" id="1_dtsbk"]
 [ext_resource type="PackedScene" uid="uid://bp4ckvo1qo0fa" path="res://Nodes/PCs/arm.tscn" id="2_pgpvo"]
 [ext_resource type="AudioStream" uid="uid://dm28pucffhuss" path="res://Audio/320181__dland__hint.ogg" id="3_mm75g"]
 [ext_resource type="AudioStream" uid="uid://g5ng5cyxq3w8" path="res://Audio/channelflip.ogg" id="4_r4i6m"]
 [ext_resource type="AudioStream" uid="uid://cem2r4ku7r6m1" path="res://Audio/burunyuu.ogg" id="5_f02w4"]
+[ext_resource type="PackedScene" uid="uid://c0dtutfiqiton" path="res://Nodes/PCs/action_arm.tscn" id="6_1hfmn"]
+[ext_resource type="AudioStream" uid="uid://bcind3vgaqucx" path="res://Audio/fast-whoosh-118248.ogg" id="7_8f07a"]
+[ext_resource type="AudioStream" uid="uid://d2kc286yyo74j" path="res://Audio/roblox-pizza-place-scared.ogg" id="8_dejby"]
+[ext_resource type="AudioStream" uid="uid://by5bo06m4yutj" path="res://Audio/gravity-coil-sound-195556.ogg" id="9_xlj8d"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_4lwht"]
 radius = 0.4
@@ -27,10 +31,11 @@ shape = SubResource("ConvexPolygonShape3D_exu03")
 [node name="Head" type="Node3D" parent="."]
 
 [node name="Camera3D" type="Camera3D" parent="Head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.424925, 0)
 far = 800.0
 
 [node name="Arm" parent="Head/Camera3D" instance=ExtResource("2_pgpvo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.451655, -0.601383, -1.06356)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.529129, -0.601383, -1.06356)
 
 [node name="power_sfx" type="AudioStreamPlayer" parent="Head/Camera3D/Arm"]
 stream = ExtResource("3_mm75g")
@@ -40,3 +45,15 @@ stream = ExtResource("4_r4i6m")
 
 [node name="burunyuu_sfx" type="AudioStreamPlayer" parent="Head/Camera3D/Arm"]
 stream = ExtResource("5_f02w4")
+
+[node name="Action_Arm" parent="Head/Camera3D" instance=ExtResource("6_1hfmn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.565694, -0.60837, -1.39178)
+
+[node name="woosh_sfx" type="AudioStreamPlayer" parent="Head/Camera3D/Action_Arm"]
+stream = ExtResource("7_8f07a")
+
+[node name="pizza_sfx" type="AudioStreamPlayer" parent="Head/Camera3D/Action_Arm"]
+stream = ExtResource("8_dejby")
+
+[node name="coil_sfx" type="AudioStreamPlayer" parent="Head/Camera3D/Action_Arm"]
+stream = ExtResource("9_xlj8d")
