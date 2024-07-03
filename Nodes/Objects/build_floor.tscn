@@ -1,0 +1,59 @@
+[gd_scene load_steps=6 format=3 uid="uid://ci07t8gtal3r0"]
+
+[ext_resource type="Texture2D" uid="uid://0vk31unvvwaq" path="res://Graphics/Models/BuildTile_0.png" id="1_pjh3x"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6ub07"]
+resource_name = "material_0"
+transparency = 2
+alpha_scissor_threshold = 0.05
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_texture = ExtResource("1_pjh3x")
+texture_filter = 0
+texture_repeat = false
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_5sstb"]
+_surfaces = [{
+"aabb": AABB(-1, 0, -1, 2.00001, 0.25001, 2.00001),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray(2, 0, 1, 0, 0, 0, 2, 0, 3, 0, 1, 0, 6, 0, 5, 0, 4, 0, 6, 0, 7, 0, 5, 0, 4, 0, 2, 0, 0, 0, 4, 0, 5, 0, 2, 0, 3, 0, 6, 0, 1, 0, 3, 0, 7, 0, 6, 0, 1, 0, 4, 0, 0, 0, 1, 0, 6, 0, 4, 0, 5, 0, 3, 0, 2, 0, 5, 0, 7, 0, 3, 0),
+"name": "material_0",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray(254, 255, 252, 255, 254, 255, 0, 0, 254, 255, 0, 0, 254, 255, 0, 0, 254, 255, 252, 255, 0, 0, 0, 0, 254, 255, 0, 0, 0, 0, 0, 0, 0, 0, 252, 255, 254, 255, 0, 0, 0, 0, 252, 255, 0, 0, 0, 0, 0, 0, 0, 0, 254, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_j41ab"]
+resource_name = "blockbench_export_mesh"
+_surfaces = [{
+"aabb": AABB(-1, 0, -1, 2.00001, 0.25001, 2.00001),
+"attribute_data": PackedByteArray(255, 65, 0, 0, 255, 65, 255, 7, 255, 129, 0, 0, 255, 129, 255, 7, 255, 129, 255, 9, 255, 65, 255, 9, 255, 129, 255, 17, 255, 65, 255, 17, 255, 63, 255, 63, 255, 63, 0, 0, 0, 0, 255, 63, 0, 0, 0, 0, 255, 63, 255, 65, 0, 0, 255, 65, 255, 63, 255, 129, 0, 0, 255, 129, 255, 129, 255, 19, 255, 65, 255, 19, 255, 129, 255, 27, 255, 65, 255, 27, 255, 65, 255, 29, 255, 65, 255, 37, 255, 129, 255, 29, 255, 129, 255, 37),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray(2, 0, 1, 0, 0, 0, 2, 0, 3, 0, 1, 0, 6, 0, 5, 0, 4, 0, 6, 0, 7, 0, 5, 0, 10, 0, 9, 0, 8, 0, 10, 0, 11, 0, 9, 0, 14, 0, 13, 0, 12, 0, 14, 0, 15, 0, 13, 0, 18, 0, 17, 0, 16, 0, 18, 0, 19, 0, 17, 0, 22, 0, 21, 0, 20, 0, 22, 0, 23, 0, 21, 0),
+"material": SubResource("StandardMaterial3D_6ub07"),
+"name": "material_0",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray(254, 255, 252, 255, 254, 255, 255, 191, 254, 255, 0, 0, 254, 255, 255, 191, 254, 255, 252, 255, 0, 0, 255, 191, 254, 255, 0, 0, 0, 0, 255, 191, 0, 0, 252, 255, 254, 255, 255, 191, 0, 0, 252, 255, 0, 0, 255, 191, 0, 0, 0, 0, 254, 255, 255, 191, 0, 0, 0, 0, 0, 0, 255, 191, 254, 255, 252, 255, 254, 255, 255, 191, 254, 255, 252, 255, 0, 0, 255, 191, 0, 0, 252, 255, 254, 255, 255, 191, 0, 0, 252, 255, 0, 0, 255, 191, 254, 255, 0, 0, 254, 255, 255, 191, 0, 0, 0, 0, 254, 255, 255, 191, 254, 255, 0, 0, 0, 0, 255, 191, 0, 0, 0, 0, 0, 0, 255, 191, 254, 255, 252, 255, 254, 255, 0, 128, 0, 0, 252, 255, 254, 255, 0, 128, 254, 255, 0, 0, 254, 255, 0, 128, 0, 0, 0, 0, 254, 255, 0, 128, 254, 255, 252, 255, 0, 0, 255, 255, 254, 255, 0, 0, 0, 0, 255, 255, 0, 0, 252, 255, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 255, 255, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255)
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_5sstb")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_1ua5h"]
+points = PackedVector3Array(-1, 0, -1, -1, 0.249999, -1, 0.999979, 0, -1, -1, 0, 0.999979, -1, 0.249999, 0.999979, 0.999979, 0.249999, -1, 0.999979, 0, 0.999979, 0.999979, 0.249999, 0.999979)
+
+[node name="BuildFloor" type="Node3D"]
+
+[node name="BuildTile2" type="MeshInstance3D" parent="."]
+mesh = SubResource("ArrayMesh_j41ab")
+skeleton = NodePath("")
+
+[node name="BuildTile" type="StaticBody3D" parent="BuildTile2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BuildTile2/BuildTile"]
+shape = SubResource("ConvexPolygonShape3D_1ua5h")

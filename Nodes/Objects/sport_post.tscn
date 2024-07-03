@@ -1,0 +1,59 @@
+[gd_scene load_steps=6 format=3 uid="uid://3wwcyh50pd5u"]
+
+[ext_resource type="Texture2D" uid="uid://bgy4md15hx3oq" path="res://Graphics/Models/SportPost_0.png" id="1_rnyby"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nsrte"]
+resource_name = "material_0"
+transparency = 2
+alpha_scissor_threshold = 0.05
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_texture = ExtResource("1_rnyby")
+texture_filter = 0
+texture_repeat = false
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_gmd2m"]
+_surfaces = [{
+"aabb": AABB(-0.125, 0, -0.125, 0.25001, 4.00001, 0.25001),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray(2, 0, 1, 0, 0, 0, 2, 0, 3, 0, 1, 0, 6, 0, 5, 0, 4, 0, 6, 0, 7, 0, 5, 0, 4, 0, 2, 0, 0, 0, 4, 0, 5, 0, 2, 0, 3, 0, 6, 0, 1, 0, 3, 0, 7, 0, 6, 0, 1, 0, 4, 0, 0, 0, 1, 0, 6, 0, 4, 0, 5, 0, 3, 0, 2, 0, 5, 0, 7, 0, 3, 0),
+"name": "material_0",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray(252, 255, 254, 255, 252, 255, 0, 0, 252, 255, 0, 0, 252, 255, 0, 0, 252, 255, 254, 255, 0, 0, 0, 0, 252, 255, 0, 0, 0, 0, 0, 0, 0, 0, 254, 255, 252, 255, 0, 0, 0, 0, 254, 255, 0, 0, 0, 0, 0, 0, 0, 0, 252, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_2a0sf"]
+resource_name = "blockbench_export_mesh"
+_surfaces = [{
+"aabb": AABB(-0.125, 0, -0.125, 0.25001, 4.00001, 0.25001),
+"attribute_data": PackedByteArray(0, 0, 0, 0, 0, 0, 255, 255, 255, 15, 0, 0, 255, 15, 255, 255, 255, 35, 0, 0, 255, 19, 0, 0, 255, 35, 255, 255, 255, 19, 255, 255, 255, 95, 255, 15, 255, 95, 0, 0, 255, 79, 255, 15, 255, 79, 0, 0, 255, 95, 255, 19, 255, 79, 255, 19, 255, 95, 255, 35, 255, 79, 255, 35, 255, 55, 0, 0, 255, 39, 0, 0, 255, 55, 255, 255, 255, 39, 255, 255, 255, 59, 0, 0, 255, 59, 255, 255, 255, 75, 0, 0, 255, 75, 255, 255),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray(2, 0, 1, 0, 0, 0, 2, 0, 3, 0, 1, 0, 6, 0, 5, 0, 4, 0, 6, 0, 7, 0, 5, 0, 10, 0, 9, 0, 8, 0, 10, 0, 11, 0, 9, 0, 14, 0, 13, 0, 12, 0, 14, 0, 15, 0, 13, 0, 18, 0, 17, 0, 16, 0, 18, 0, 19, 0, 17, 0, 22, 0, 21, 0, 20, 0, 22, 0, 23, 0, 21, 0),
+"material": SubResource("StandardMaterial3D_nsrte"),
+"name": "material_0",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray(252, 255, 254, 255, 252, 255, 255, 191, 252, 255, 0, 0, 252, 255, 255, 191, 252, 255, 254, 255, 0, 0, 255, 191, 252, 255, 0, 0, 0, 0, 255, 191, 0, 0, 254, 255, 252, 255, 255, 191, 0, 0, 254, 255, 0, 0, 255, 191, 0, 0, 0, 0, 252, 255, 255, 191, 0, 0, 0, 0, 0, 0, 255, 191, 252, 255, 254, 255, 252, 255, 255, 191, 252, 255, 254, 255, 0, 0, 255, 191, 0, 0, 254, 255, 252, 255, 255, 191, 0, 0, 254, 255, 0, 0, 255, 191, 252, 255, 0, 0, 252, 255, 255, 191, 0, 0, 0, 0, 252, 255, 255, 191, 252, 255, 0, 0, 0, 0, 255, 191, 0, 0, 0, 0, 0, 0, 255, 191, 252, 255, 254, 255, 252, 255, 0, 128, 0, 0, 254, 255, 252, 255, 0, 128, 252, 255, 0, 0, 252, 255, 0, 128, 0, 0, 0, 0, 252, 255, 0, 128, 252, 255, 254, 255, 0, 0, 255, 255, 252, 255, 0, 0, 0, 0, 255, 255, 0, 0, 254, 255, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 255, 255, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255)
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_gmd2m")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_7r24r"]
+points = PackedVector3Array(-0.125, 0, -0.125, -0.125, 0, 0.124999, -0.125, 3.99995, -0.125, 0.124999, 0, -0.125, 0.124999, 0, 0.124999, -0.125, 3.99995, 0.124999, 0.124999, 3.99995, -0.125, 0.124999, 3.99995, 0.124999)
+
+[node name="SportPost" type="Node3D"]
+
+[node name="cuboid" type="MeshInstance3D" parent="."]
+mesh = SubResource("ArrayMesh_2a0sf")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="cuboid"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="cuboid/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_7r24r")

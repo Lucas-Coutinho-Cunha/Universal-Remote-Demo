@@ -2,14 +2,14 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b6qp1t0cw3hu1"
+uid="uid://d3rcw35m38vdp"
 path.bptc="res://.godot/imported/ControllerArm_0.png-558b1f987012ced0e102ee623e861f8e.bptc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "48605e5e06cda5f7358f7c92d059407f"
+"md5": "b19ac0feb4fc3e398e1252e345b64eb7"
 }
 
 [deps]

@@ -620,38 +620,6 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_elgu2")
 
-[sub_resource type="Animation" id="Animation_8l78w"]
-resource_name = "PowerButtonPress"
-length = 0.25
-tracks/0/type = "position_3d"
-tracks/0/imported = true
-tracks/0/enabled = true
-tracks/0/path = NodePath("Node/Hand/Thumb")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, 0.296875, 0.15625, 0.125, 0.1, 1, 0.221875, 0.20625, 0.125, 0.133333, 1, 0.209375, 0.214583, 0.125, 0.25, 1, 0.296875, 0.15625, 0.125)
-tracks/1/type = "rotation_3d"
-tracks/1/imported = true
-tracks/1/enabled = true
-tracks/1/path = NodePath("Node/Hand/Thumb")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = PackedFloat32Array(0, 1, -0.666069, 0.712715, -0.18841, 0.113539, 0.1, 1, -0.727707, 0.627426, -0.276496, -0.0181535, 0.133333, 1, -0.735467, 0.610908, -0.290286, -0.0401677, 0.233333, 1, -0.678087, 0.700218, -0.203654, 0.0917478, 0.25, 1, -0.666069, 0.712715, -0.18841, 0.113539)
-tracks/2/type = "rotation_3d"
-tracks/2/imported = true
-tracks/2/enabled = true
-tracks/2/path = NodePath("Node/Hand/Palm")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.1, 1, 0, 0, 0.0697565, 0.997564, 0.133333, 1, 0, 0, 0.0813587, 0.996685, 0.233333, 1, 0, 0, 0.0116353, 0.999932, 0.25, 1, 0, 0, 0, 1)
-tracks/3/type = "rotation_3d"
-tracks/3/imported = true
-tracks/3/enabled = true
-tracks/3/path = NodePath("Node/Hand/Thumb/thumb2")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.1, 1, 0, 0, -0.207912, 0.978148, 0.133333, 1, 0, 0, -0.241922, 0.970296, 0.233333, 1, 0, 0, -0.0348995, 0.999391, 0.25, 1, 0, 0, 0, 1)
-
 [sub_resource type="Animation" id="Animation_f5fqy"]
 resource_name = "ChannelButtonAnimation"
 length = 0.25
@@ -683,6 +651,38 @@ tracks/3/path = NodePath("Node/Hand/Palm")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_8l78w"]
+resource_name = "PowerButtonPress"
+length = 0.25
+tracks/0/type = "position_3d"
+tracks/0/imported = true
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node/Hand/Thumb")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0.296875, 0.15625, 0.125, 0.1, 1, 0.221875, 0.20625, 0.125, 0.133333, 1, 0.209375, 0.214583, 0.125, 0.25, 1, 0.296875, 0.15625, 0.125)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = true
+tracks/1/enabled = true
+tracks/1/path = NodePath("Node/Hand/Thumb")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, -0.666069, 0.712715, -0.18841, 0.113539, 0.1, 1, -0.727707, 0.627426, -0.276496, -0.0181535, 0.133333, 1, -0.735467, 0.610908, -0.290286, -0.0401677, 0.233333, 1, -0.678087, 0.700218, -0.203654, 0.0917478, 0.25, 1, -0.666069, 0.712715, -0.18841, 0.113539)
+tracks/2/type = "rotation_3d"
+tracks/2/imported = true
+tracks/2/enabled = true
+tracks/2/path = NodePath("Node/Hand/Palm")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.1, 1, 0, 0, 0.0697565, 0.997564, 0.133333, 1, 0, 0, 0.0813587, 0.996685, 0.233333, 1, 0, 0, 0.0116353, 0.999932, 0.25, 1, 0, 0, 0, 1)
+tracks/3/type = "rotation_3d"
+tracks/3/imported = true
+tracks/3/enabled = true
+tracks/3/path = NodePath("Node/Hand/Thumb/thumb2")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.1, 1, 0, 0, -0.207912, 0.978148, 0.133333, 1, 0, 0, -0.241922, 0.970296, 0.233333, 1, 0, 0, -0.0348995, 0.999391, 0.25, 1, 0, 0, 0, 1)
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gplfa"]
 _data = {
