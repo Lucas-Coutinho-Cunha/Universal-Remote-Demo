@@ -1,5 +1,26 @@
 extends CharacterBody3D
 
+
+
+@onready var head := $Head
+@onready var camera := $Head/Camera3D
+
+@onready var power_sfx := $Head/Camera3D/Arm/power_sfx
+@onready var channel_sfx := $Head/Camera3D/Arm/channel_sfx
+@onready var burunyuu_sfx := $Head/Camera3D/Arm/burunyuu_sfx
+@onready var sport_sfx := $Head/Camera3D/Action_Arm/woosh_sfx
+@onready var cartoon_sfx := $Head/Camera3D/Action_Arm/pizza_sfx
+@onready var build_sfx := $Head/Camera3D/Action_Arm/coil_sfx
+
+@onready var hand_anim := $Head/Camera3D/Arm/AnimationPlayer
+@onready var action_anim := $Head/Camera3D/Action_Arm/AnimationPlayer
+
+@onready var buildmap := $"../Map/Build/BuildGrid"
+@onready var sportmap := $"../Map/Sport/SportGrid"
+@onready var cartoonmap := $"../Map/Cartoon/CartoonGrid"
+
+
+
 var speed : float
 var gravity : float = 9.8
 const SPRINT_SPEED : float = 8.0
@@ -16,26 +37,20 @@ var t_bob : float = 0.0
 const BASE_FOV : float = 75.0
 const FOV_CHANGE : float = 1.5
 
-
-
-@onready var head := $Head
-@onready var camera := $Head/Camera3D
-@onready var hand_anim := $Head/Camera3D/Arm/AnimationPlayer
-@onready var power_sfx := $Head/Camera3D/Arm/power_sfx
-@onready var channel_sfx := $Head/Camera3D/Arm/channel_sfx
-@onready var burunyuu_sfx := $Head/Camera3D/Arm/burunyuu_sfx
-
-@onready var action_anim := $Head/Camera3D/Action_Arm/AnimationPlayer
-@onready var woosh_sfx := $Head/Camera3D/Action_Arm/woosh_sfx
-@onready var pizza_sfx := $Head/Camera3D/Action_Arm/pizza_sfx
-@onready var coil_sfx := $Head/Camera3D/Action_Arm/coil_sfx
-@onready var buildmap := $"../Map/Build/BuildGrid"
-@onready var sportmap := $"../Map/Sport/SportGrid"
-@onready var cartoonmap := $"../Map/Cartoon/CartoonGrid"
+#Skills
+var skilltype : int = 1
+var current_anim : String
+var current_sfx : AudioStreamPlayer
 
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	sportmap.set_visible(false)
+	sportmap.collision_layer = 2
+	cartoonmap.set_visible(false)
+	cartoonmap.collision_layer = 2
+	current_anim = "UseTrowel"
+	current_sfx = build_sfx
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -55,7 +70,6 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 		
-	
 	if Input.is_action_pressed("sprint"):
 		speed = SPRINT_SPEED
 	else:
@@ -95,21 +109,9 @@ func _physics_process(delta: float) -> void:
 			
 	elif Input.is_action_just_pressed("M2"):
 		if !hand_anim.is_playing():
-			hand_anim.play("ChannelButtonAnimation")
-			channel_sfx.play()
-	
-	if Input.is_action_just_pressed("test1"):
-		if !action_anim.is_playing():
-			action_anim.play("ThrowBaseball")
-			woosh_sfx.play()
-	elif Input.is_action_just_pressed("test2"):
-		if !action_anim.is_playing():
-			action_anim.play("ThrowDynamite")
-			pizza_sfx.play()
-	elif Input.is_action_just_pressed("test3"):
-		if !action_anim.is_playing():
-			action_anim.play("UseTrowel")
-			coil_sfx.play()
+			action_anim.play(current_anim)
+			current_sfx.play()
+
 
 	if Input.is_action_just_pressed("Ch1"):
 		if !hand_anim.is_playing():
@@ -120,6 +122,9 @@ func _physics_process(delta: float) -> void:
 			cartoonmap.set_visible(false)
 			cartoonmap.collision_layer = 2
 			hand_anim.play("ChannelButtonAnimation")
+			
+			current_anim = "UseTrowel"
+			current_sfx = build_sfx
 			channel_sfx.play()
 		
 	if Input.is_action_just_pressed("Ch2"):
@@ -131,6 +136,9 @@ func _physics_process(delta: float) -> void:
 			cartoonmap.set_visible(false)
 			cartoonmap.collision_layer = 2
 			hand_anim.play("ChannelButtonAnimation")
+			
+			current_anim = "ThrowBaseball"
+			current_sfx = sport_sfx
 			channel_sfx.play()
 		
 	if Input.is_action_just_pressed("Ch3"):
@@ -142,6 +150,9 @@ func _physics_process(delta: float) -> void:
 			cartoonmap.set_visible(true)
 			cartoonmap.collision_layer = 1
 			hand_anim.play("ChannelButtonAnimation")
+			
+			current_anim = "ThrowDynamite"
+			current_sfx = cartoon_sfx
 			channel_sfx.play()
 
 	move_and_slide()
