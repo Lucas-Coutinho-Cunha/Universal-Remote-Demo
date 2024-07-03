@@ -20,7 +20,6 @@ extends CharacterBody3D
 @onready var cartoonmap := $"../Map/Cartoon/CartoonGrid"
 
 
-
 var speed : float
 var gravity : float = 9.8
 const SPRINT_SPEED : float = 8.0
@@ -163,4 +162,3 @@ func _headbob(time: float) -> Vector3:
 	pos.y = sin(time * BOB_FREQ) * BOB_AMP
 	pos.x = cos(time * BOB_FREQ / 2) * BOB_AMP
 	return pos
-
