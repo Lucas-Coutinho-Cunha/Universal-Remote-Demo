@@ -2,14 +2,14 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dcamib06316tg"
+uid="uid://dox522x5jjixb"
 path.bptc="res://.godot/imported/BuildWall4_0.png-f025d4784a4f776a7167538c31c26d14.bptc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "831c47cbe9d34f04b044014363c314fe"
+"md5": "90cc4fbedb4026e240ce4efdbcb9b638"
 }
 
 [deps]

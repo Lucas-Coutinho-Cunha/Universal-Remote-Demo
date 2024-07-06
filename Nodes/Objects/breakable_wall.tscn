@@ -1,0 +1,85 @@
+[gd_scene load_steps=8 format=3 uid="uid://c4pjjdmfk0j8y"]
+
+[ext_resource type="Script" path="res://Nodes/Objects/breakable_wall.gd" id="1_a5ltx"]
+[ext_resource type="Texture2D" uid="uid://dp12n7optwyga" path="res://Graphics/Models/BreakableWall_0.png" id="1_brkcb"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_84to3"]
+resource_name = "material_0"
+transparency = 2
+alpha_scissor_threshold = 0.05
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_texture = ExtResource("1_brkcb")
+texture_filter = 0
+texture_repeat = false
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_iyou0"]
+_surfaces = [{
+"aabb": AABB(-2, 0, -0.25, 4.00001, 4.00001, 0.50001),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray(2, 0, 1, 0, 0, 0, 2, 0, 3, 0, 1, 0, 6, 0, 5, 0, 4, 0, 6, 0, 7, 0, 5, 0, 4, 0, 2, 0, 0, 0, 4, 0, 5, 0, 2, 0, 3, 0, 6, 0, 1, 0, 3, 0, 7, 0, 6, 0, 1, 0, 4, 0, 0, 0, 1, 0, 6, 0, 4, 0, 5, 0, 3, 0, 2, 0, 5, 0, 7, 0, 3, 0),
+"name": "material_0",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray(254, 255, 254, 255, 253, 255, 0, 0, 254, 255, 0, 0, 253, 255, 0, 0, 254, 255, 254, 255, 0, 0, 0, 0, 254, 255, 0, 0, 0, 0, 0, 0, 0, 0, 254, 255, 253, 255, 0, 0, 0, 0, 254, 255, 0, 0, 0, 0, 0, 0, 0, 0, 253, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_13hat"]
+resource_name = "blockbench_export_mesh"
+_surfaces = [{
+"aabb": AABB(-2, 0, -0.25, 4.00001, 4.00001, 0.50001),
+"attribute_data": PackedByteArray(255, 64, 0, 0, 255, 64, 255, 63, 255, 72, 0, 0, 255, 72, 255, 63, 255, 72, 255, 64, 255, 64, 255, 64, 255, 72, 255, 128, 255, 64, 255, 128, 255, 137, 255, 7, 255, 137, 0, 0, 255, 73, 255, 7, 255, 73, 0, 0, 255, 137, 255, 8, 255, 73, 255, 8, 255, 137, 255, 16, 255, 73, 255, 16, 255, 63, 0, 0, 0, 0, 0, 0, 255, 63, 255, 63, 0, 0, 255, 63, 0, 0, 255, 64, 0, 0, 255, 128, 255, 63, 255, 64, 255, 63, 255, 128),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray(2, 0, 1, 0, 0, 0, 2, 0, 3, 0, 1, 0, 6, 0, 5, 0, 4, 0, 6, 0, 7, 0, 5, 0, 10, 0, 9, 0, 8, 0, 10, 0, 11, 0, 9, 0, 14, 0, 13, 0, 12, 0, 14, 0, 15, 0, 13, 0, 18, 0, 17, 0, 16, 0, 18, 0, 19, 0, 17, 0, 22, 0, 21, 0, 20, 0, 22, 0, 23, 0, 21, 0),
+"material": SubResource("StandardMaterial3D_84to3"),
+"name": "material_0",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray(254, 255, 254, 255, 253, 255, 255, 191, 254, 255, 0, 0, 253, 255, 255, 191, 254, 255, 254, 255, 0, 0, 255, 191, 254, 255, 0, 0, 0, 0, 255, 191, 0, 0, 254, 255, 253, 255, 255, 191, 0, 0, 254, 255, 0, 0, 255, 191, 0, 0, 0, 0, 253, 255, 255, 191, 0, 0, 0, 0, 0, 0, 255, 191, 254, 255, 254, 255, 253, 255, 255, 191, 254, 255, 254, 255, 0, 0, 255, 191, 0, 0, 254, 255, 253, 255, 255, 191, 0, 0, 254, 255, 0, 0, 255, 191, 254, 255, 0, 0, 253, 255, 255, 191, 0, 0, 0, 0, 253, 255, 255, 191, 254, 255, 0, 0, 0, 0, 255, 191, 0, 0, 0, 0, 0, 0, 255, 191, 254, 255, 254, 255, 253, 255, 0, 128, 0, 0, 254, 255, 253, 255, 0, 128, 254, 255, 0, 0, 253, 255, 0, 128, 0, 0, 0, 0, 253, 255, 0, 128, 254, 255, 254, 255, 0, 0, 255, 255, 254, 255, 0, 0, 0, 0, 255, 255, 0, 0, 254, 255, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 255, 255, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255)
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_iyou0")
+
+[sub_resource type="Animation" id="Animation_ytk45"]
+resource_name = "Fall"
+length = 1.04167
+tracks/0/type = "rotation_3d"
+tracks/0/imported = true
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node/wall")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.0666667, 1, 0.0174524, 0, 0, 0.999848, 0.1, 1, 0.0326231, 0, 0, 0.999468, 0.233333, 1, 0.118846, 0, 0, 0.992913, 0.266667, 1, 0.142842, 0, 0, 0.989745, 0.366667, 1, 0.221826, 0, 0, 0.975086, 0.4, 1, 0.243463, 0, 0, 0.96991, 0.5, 1, 0.303285, 0, 0, 0.9529, 1, 1, 0.866025, 0, 0, 0.5, 1.04167, 1, 0.866025, 0, 0, 0.5)
+tracks/1/type = "scale_3d"
+tracks/1/imported = true
+tracks/1/enabled = true
+tracks/1/path = NodePath("Node/wall")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1.04167, 1, 0, 0, -2.77556e-17)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2pl58"]
+_data = {
+"Fall": SubResource("Animation_ytk45")
+}
+
+[node name="BreakableWall" type="Node3D"]
+script = ExtResource("1_a5ltx")
+
+[node name="Node" type="Node3D" parent="."]
+
+[node name="wall" type="Node3D" parent="Node"]
+
+[node name="cuboid" type="MeshInstance3D" parent="Node/wall"]
+mesh = SubResource("ArrayMesh_13hat")
+skeleton = NodePath("")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_2pl58")
+}
