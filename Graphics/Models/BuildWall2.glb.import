@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bnnrss3s3dgk1"
-path="res://.godot/imported/SportPost.gltf-52c15bba44a2bda021e1ca470532563b.scn"
+uid="uid://wwn8pr48xj0u"
+path="res://.godot/imported/BuildWall2.glb-910a81b6703471fcbd82c76c7846a442.scn"
 
 [deps]
 
-source_file="res://Graphics/Models/SportPost.gltf"
-dest_files=["res://.godot/imported/SportPost.gltf-52c15bba44a2bda021e1ca470532563b.scn"]
+source_file="res://Graphics/Models/BuildWall2.glb"
+dest_files=["res://.godot/imported/BuildWall2.glb-910a81b6703471fcbd82c76c7846a442.scn"]
 
 [params]
 

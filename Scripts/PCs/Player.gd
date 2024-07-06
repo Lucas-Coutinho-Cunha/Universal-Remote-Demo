@@ -18,6 +18,7 @@ extends CharacterBody3D
 @onready var buildmap := $"../Map/Build/BuildGrid"
 @onready var sportmap := $"../Map/Sport/SportGrid"
 @onready var cartoonmap := $"../Map/Cartoon/CartoonGrid"
+@onready var plainmap := $"../Map/Plain/PlainGrid"
 
 
 var speed : float
@@ -48,7 +49,9 @@ func _ready() -> void:
 	sportmap.collision_layer = 2
 	cartoonmap.set_visible(false)
 	cartoonmap.collision_layer = 2
-	current_anim = "UseTrowel"
+	buildmap.set_visible(false)
+	buildmap.collision_layer = 2
+	current_anim = "None"
 	current_sfx = build_sfx
 
 
@@ -107,9 +110,10 @@ func _physics_process(delta: float) -> void:
 			burunyuu_sfx.play()
 			
 	elif Input.is_action_just_pressed("M2"):
-		if !hand_anim.is_playing():
-			action_anim.play(current_anim)
-			current_sfx.play()
+		if current_anim != "None":
+			if !hand_anim.is_playing():
+				action_anim.play(current_anim)
+				current_sfx.play()
 
 
 	if Input.is_action_just_pressed("Ch1"):
@@ -120,6 +124,8 @@ func _physics_process(delta: float) -> void:
 			sportmap.collision_layer = 2
 			cartoonmap.set_visible(false)
 			cartoonmap.collision_layer = 2
+			plainmap.set_visible(false)
+			plainmap.collision_layer = 2
 			hand_anim.play("ChannelButtonAnimation")
 			
 			current_anim = "UseTrowel"
@@ -134,6 +140,8 @@ func _physics_process(delta: float) -> void:
 			sportmap.collision_layer = 1
 			cartoonmap.set_visible(false)
 			cartoonmap.collision_layer = 2
+			plainmap.set_visible(false)
+			plainmap.collision_layer = 2
 			hand_anim.play("ChannelButtonAnimation")
 			
 			current_anim = "ThrowBaseball"
@@ -148,6 +156,8 @@ func _physics_process(delta: float) -> void:
 			sportmap.collision_layer = 2
 			cartoonmap.set_visible(true)
 			cartoonmap.collision_layer = 1
+			plainmap.set_visible(false)
+			plainmap.collision_layer = 2
 			hand_anim.play("ChannelButtonAnimation")
 			
 			current_anim = "ThrowDynamite"
@@ -159,6 +169,6 @@ func _physics_process(delta: float) -> void:
 
 func _headbob(time: float) -> Vector3:
 	var pos := Vector3.ZERO
-	pos.y = sin(time * BOB_FREQ) * BOB_AMP
+	pos.y = (sin(time * BOB_FREQ) * BOB_AMP) + 1
 	pos.x = cos(time * BOB_FREQ / 2) * BOB_AMP
 	return pos

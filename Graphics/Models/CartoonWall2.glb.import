@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bva2m2tcxx8bf"
-path="res://.godot/imported/BuildWall2.gltf-fa07fb6a4e0e3e8aabc019bbb863bc13.scn"
+uid="uid://niw3ap5nvimv"
+path="res://.godot/imported/CartoonWall2.glb-5da8835f7a6984510ed7aa6df1bf7019.scn"
 
 [deps]
 
-source_file="res://Graphics/Models/BuildWall2.gltf"
-dest_files=["res://.godot/imported/BuildWall2.gltf-fa07fb6a4e0e3e8aabc019bbb863bc13.scn"]
+source_file="res://Graphics/Models/CartoonWall2.glb"
+dest_files=["res://.godot/imported/CartoonWall2.glb-5da8835f7a6984510ed7aa6df1bf7019.scn"]
 
 [params]
 
