@@ -2,14 +2,14 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dic4hnd8y0gwv"
+uid="uid://iynwwmvhrfbl"
 path.bptc="res://.godot/imported/ActionArm_1.png-ecd8aac74f690dddaa0fbd62f2d369da.bptc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "df6d2a3e3c364e6e4834facdb06c3526"
+"md5": "23da4595388f0a50e0bd6cf3f026337f"
 }
 
 [deps]

@@ -4,21 +4,24 @@ extends CharacterBody3D
 
 @onready var head := $Head
 @onready var camera := $Head/Camera3D
+@onready var subviewport_cam := $PlayerScreen/SubViewportContainer/SubViewport/Subviewport_cam
+@onready var action_arm := $Head/Camera3D/Action_Arm
 
 @onready var power_sfx := $Head/Camera3D/Arm/power_sfx
 @onready var channel_sfx := $Head/Camera3D/Arm/channel_sfx
 @onready var burunyuu_sfx := $Head/Camera3D/Arm/burunyuu_sfx
-@onready var sport_sfx := $Head/Camera3D/Action_Arm/woosh_sfx
-@onready var cartoon_sfx := $Head/Camera3D/Action_Arm/pizza_sfx
-@onready var build_sfx := $Head/Camera3D/Action_Arm/coil_sfx
+@onready var aztec_sfx := $Head/Camera3D/Action_Arm/grapple_sfx
+@onready var sandbox_sfx := $Head/Camera3D/Action_Arm/dynamite_sfx
+@onready var future_sfx := $Head/Camera3D/Action_Arm/pump_sfx
 
 @onready var hand_anim := $Head/Camera3D/Arm/AnimationPlayer
 @onready var action_anim := $Head/Camera3D/Action_Arm/AnimationPlayer
 
-@onready var buildmap := $"../Map/Build/BuildGrid"
-@onready var sportmap := $"../Map/Sport/SportGrid"
-@onready var cartoonmap := $"../Map/Cartoon/CartoonGrid"
+@onready var aztecmap := $"../Map/Aztec/AztecGrid"
+@onready var sandboxmap := $"../Map/Sandbox/SandboxGrid"
+@onready var futuremap := $"../Map/Future/FutureGrid"
 @onready var plainmap := $"../Map/Plain/PlainGrid"
+
 
 
 var speed : float
@@ -40,26 +43,48 @@ const FOV_CHANGE : float = 1.5
 #Skills
 var skilltype : int = 1
 var current_anim : String
-var current_sfx : AudioStreamPlayer
 
+const GRAPPLE_RAY_MAX := 10
+
+var dynamite := load("res://Nodes/PCs/Dynamite.tscn")
+var instance : RigidBody3D
+
+var run_mode := false
+var current_direction : Vector3 
+
+@onready var current_level := $".."
 
 func _ready() -> void:
+	
+	#camera_cast.set_target_position(Vector3(0, -1 * GRAPPLE_RAY_MAX, 0))
+	
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	sportmap.set_visible(false)
-	sportmap.collision_layer = 2
-	cartoonmap.set_visible(false)
-	cartoonmap.collision_layer = 2
-	buildmap.set_visible(false)
-	buildmap.collision_layer = 2
-	current_anim = "None"
-	current_sfx = build_sfx
-
+	if current_level.name == "Level1":
+		aztecmap.set_visible(false)
+		aztecmap.collision_layer = 2
+		sandboxmap.set_visible(false)
+		sandboxmap.collision_layer = 2
+		futuremap.set_visible(false)
+		futuremap.collision_layer = 2
+		current_anim = "None"
+	else:
+		aztecmap.set_visible(true)
+		aztecmap.collision_layer = 1
+		sandboxmap.set_visible(false)
+		sandboxmap.collision_layer = 2
+		futuremap.set_visible(false)
+		futuremap.collision_layer = 2
+		current_anim = "GrappleUse"
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		head.rotate_y(-event.relative.x * SENSITIVITY)
 		camera.rotate_x(-event.relative.y * SENSITIVITY)
 		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-50), deg_to_rad(80))
+
+
+func _process(_delta: float) -> void:
+	subviewport_cam.set_global_transform(camera.get_global_transform())
 
 
 func _physics_process(delta: float) -> void:
@@ -80,16 +105,21 @@ func _physics_process(delta: float) -> void:
 	var input_dir := Input.get_vector("left", "right", "up", "down")
 	var direction : Vector3 = (head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	
-	if is_on_floor():
-		if direction:
-			velocity.x = direction.x * speed
-			velocity.z = direction.z * speed
+	if run_mode == false:
+		if is_on_floor():
+			if direction:
+				velocity.x = direction.x * speed
+				velocity.z = direction.z * speed
+			else:
+				velocity.x = lerp(velocity.x, direction.x * speed, delta * 7.0)
+			velocity.z = lerp(velocity.z, direction.z * speed, delta * 7.0)
 		else:
-			velocity.x = lerp(velocity.x, direction.x * speed, delta * 7.0)
-		velocity.z = lerp(velocity.z, direction.z * speed, delta * 7.0)
+			velocity.x = lerp(velocity.x, direction.x * speed * 1.3, delta * 3.0)
+			velocity.z = lerp(velocity.z, direction.z * speed * 1.3, delta * 3.0)
+			
 	else:
-		velocity.x = lerp(velocity.x, direction.x * speed, delta * 3.0)
-		velocity.z = lerp(velocity.z, direction.z * speed, delta * 3.0)
+		velocity.x = lerp(velocity.x, current_direction.x * speed * 3, delta * 3.0)
+		velocity.z = lerp(velocity.z, current_direction.z * speed * 3, delta * 3.0)
 		
 	#Bobbing
 	t_bob += delta * velocity.length() * float(is_on_floor())
@@ -108,60 +138,93 @@ func _physics_process(delta: float) -> void:
 		if !hand_anim.is_playing():
 			hand_anim.play("PowerButtonPress")
 			burunyuu_sfx.play()
-			
+
+
+
 	elif Input.is_action_just_pressed("M2"):
 		if current_anim != "None":
 			if !hand_anim.is_playing():
 				action_anim.play(current_anim)
-				current_sfx.play()
+				
+				
+
+				# GRAPPLING HOOK
+
+				if aztecmap.collision_layer == 1:
+					pass
+
+
+				# DYNAMITE
+
+				elif sandboxmap.collision_layer == 1:
+					await get_tree().create_timer(0.9).timeout
+					instance = dynamite.instantiate()
+					instance.position = action_arm.global_position
+					instance.position.y += 0.2
+					instance.transform.basis = action_arm.global_transform.basis
+					get_parent().add_child(instance)
+
+
+				# SUPER DASH
+
+				elif futuremap.collision_layer == 1:
+					if run_mode == false:
+						future_sfx.play()
+						run_mode = true
+						current_direction.x = clamp(direction.x, -1, 1) * 2
+						current_direction.z = clamp(direction.z, -1, 1) * 2
+						
+					elif run_mode == true:
+						run_mode = false
+
+
+
 
 
 	if Input.is_action_just_pressed("Ch1"):
 		if !hand_anim.is_playing():
-			buildmap.set_visible(true)
-			buildmap.collision_layer = 1
-			sportmap.set_visible(false)
-			sportmap.collision_layer = 2
-			cartoonmap.set_visible(false)
-			cartoonmap.collision_layer = 2
+			aztecmap.set_visible(true)
+			aztecmap.collision_layer = 1
+			sandboxmap.set_visible(false)
+			sandboxmap.collision_layer = 2
+			futuremap.set_visible(false)
+			futuremap.collision_layer = 2
 			plainmap.set_visible(false)
 			plainmap.collision_layer = 2
 			hand_anim.play("ChannelButtonAnimation")
 			
-			current_anim = "UseTrowel"
-			current_sfx = build_sfx
+			current_anim = "GrappleUse"
 			channel_sfx.play()
+			action_anim.play("GrappleLoop")
 		
 	if Input.is_action_just_pressed("Ch2"):
 		if !hand_anim.is_playing():
-			buildmap.set_visible(false)
-			buildmap.collision_layer = 2
-			sportmap.set_visible(true)
-			sportmap.collision_layer = 1
-			cartoonmap.set_visible(false)
-			cartoonmap.collision_layer = 2
-			plainmap.set_visible(false)
-			plainmap.collision_layer = 2
-			hand_anim.play("ChannelButtonAnimation")
-			
-			current_anim = "ThrowBaseball"
-			current_sfx = sport_sfx
-			channel_sfx.play()
-		
-	if Input.is_action_just_pressed("Ch3"):
-		if !hand_anim.is_playing():
-			buildmap.set_visible(false)
-			buildmap.collision_layer = 2
-			sportmap.set_visible(false)
-			sportmap.collision_layer = 2
-			cartoonmap.set_visible(true)
-			cartoonmap.collision_layer = 1
+			aztecmap.set_visible(false)
+			aztecmap.collision_layer = 2
+			sandboxmap.set_visible(true)
+			sandboxmap.collision_layer = 1
+			futuremap.set_visible(false)
+			futuremap.collision_layer = 2
 			plainmap.set_visible(false)
 			plainmap.collision_layer = 2
 			hand_anim.play("ChannelButtonAnimation")
 			
 			current_anim = "ThrowDynamite"
-			current_sfx = cartoon_sfx
+			channel_sfx.play()
+		
+	if Input.is_action_just_pressed("Ch3"):
+		if !hand_anim.is_playing():
+			aztecmap.set_visible(false)
+			aztecmap.collision_layer = 2
+			sandboxmap.set_visible(false)
+			sandboxmap.collision_layer = 2
+			futuremap.set_visible(true)
+			futuremap.collision_layer = 1
+			plainmap.set_visible(false)
+			plainmap.collision_layer = 2
+			hand_anim.play("ChannelButtonAnimation")
+			
+			current_anim = "Pump"
 			channel_sfx.play()
 
 	move_and_slide()
@@ -169,6 +232,6 @@ func _physics_process(delta: float) -> void:
 
 func _headbob(time: float) -> Vector3:
 	var pos := Vector3.ZERO
-	pos.y = (sin(time * BOB_FREQ) * BOB_AMP) + 1
+	pos.y = (sin(time * BOB_FREQ) * BOB_AMP) + 0.8
 	pos.x = cos(time * BOB_FREQ / 2) * BOB_AMP
 	return pos

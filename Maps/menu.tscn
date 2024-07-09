@@ -6863,7 +6863,7 @@ script = ExtResource("1_xbc40")
 [node name="Node" type="Node3D" parent="TVBot"]
 
 [node name="Hip" type="Node3D" parent="TVBot/Node"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 0.999826, 0.018646, 0, -0.018646, 0.999826, 0, 1.54688, 0)
 
 [node name="cuboid" type="MeshInstance3D" parent="TVBot/Node/Hip"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.26563, 0)
@@ -6871,7 +6871,7 @@ mesh = SubResource("ArrayMesh_5ybst")
 skeleton = NodePath("")
 
 [node name="Head" type="Node3D" parent="TVBot/Node/Hip"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.64063, 0)
+transform = Transform3D(0.988838, 0.14899, 0, -0.14899, 0.988838, 0, 0, 0, 1, 0, 2.64063, 0)
 
 [node name="cuboid2" type="MeshInstance3D" parent="TVBot/Node/Hip/Head"]
 transform = Transform3D(0.998843, 0.0476372, -0.00663998, -0.0472566, 0.997683, 0.0489351, 0.00895574, -0.0485647, 0.99878, 0.000652671, -0.00468159, 0.0154795)
@@ -6966,7 +6966,7 @@ transform = Transform3D(1, 7.2323e-09, 0, -7.66886e-09, 1, 1.86265e-09, 2.32831e
 shape = SubResource("ConvexPolygonShape3D_qbxqk")
 
 [node name="ArmLeft" type="Node3D" parent="TVBot/Node/Hip"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.562559, 2.01563, 0.00272621)
+transform = Transform3D(0.999048, -0.0308435, 0.0308435, 3.1665e-08, 0.707107, 0.707106, -0.0436193, -0.706433, 0.706434, -0.562559, 2.01563, 0.00272621)
 
 [node name="Disc" type="MeshInstance3D" parent="TVBot/Node/Hip/ArmLeft"]
 transform = Transform3D(-0.0436194, 0.999048, 0, 0, 0, 1, 0.999048, 0.0436194, 0, -0.0624405, 0, -0.00272621)
@@ -7092,7 +7092,7 @@ mesh = SubResource("ArrayMesh_53t7p")
 skeleton = NodePath("")
 
 [node name="ArmRight" type="Node3D" parent="TVBot/Node/Hip"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.562441, 2.01563, 0.00272621)
+transform = Transform3D(1, 0, 0, 0, 0.991445, 0.130526, 0, -0.130526, 0.991445, 0.562441, 2.01563, 0.00272621)
 
 [node name="Disc2" type="MeshInstance3D" parent="TVBot/Node/Hip/ArmRight"]
 transform = Transform3D(-0.0436194, 0.999048, 0, 0, 0, 1, 0.999048, 0.0436194, 0, -0.0624405, 0, -0.00272621)
@@ -7120,7 +7120,7 @@ mesh = SubResource("ArrayMesh_iw5bt")
 skeleton = NodePath("")
 
 [node name="Joint" type="Node3D" parent="TVBot/Node/Hip/ArmRight"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0156845, 0, -1.03398)
+transform = Transform3D(0.520918, 0.259202, 0.813301, 0.662736, 0.477678, -0.576719, -0.537983, 0.839428, 0.0770491, 0.0156845, 0, -1.03398)
 
 [node name="cylinder11" type="MeshInstance3D" parent="TVBot/Node/Hip/ArmRight/Joint"]
 transform = Transform3D(0, -0.999048, -0.0436194, 1, 0, 0, 0, -0.0436194, 0.999048, 0.0624405, 0, 0.00272621)
@@ -7151,7 +7151,7 @@ mesh = SubResource("ArrayMesh_sqimq")
 skeleton = NodePath("")
 
 [node name="Hand" type="Node3D" parent="TVBot/Node/Hip/ArmRight/Joint/Arm4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+transform = Transform3D(0.865985, -0.450803, -0.21644, 0.461748, 0.887011, -3.72529e-09, 0.191984, -0.0999406, 0.976296, 0.103125, -0.14375, -0.39375)
 
 [node name="Palm" type="Node3D" parent="TVBot/Node/Hip/ArmRight/Joint/Arm4/Hand"]
 
@@ -7166,7 +7166,7 @@ mesh = SubResource("ArrayMesh_epl1f")
 skeleton = NodePath("")
 
 [node name="Thumb" type="Node3D" parent="TVBot/Node/Hip/ArmRight/Joint/Arm4/Hand"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+transform = Transform3D(0.105692, -0.96103, 0.25544, -0.994311, -0.0987233, 0.0399889, -0.0132126, -0.258214, -0.965997, 0.265732, 0.330976, 0.0260093)
 
 [node name="cuboid15" type="MeshInstance3D" parent="TVBot/Node/Hip/ArmRight/Joint/Arm4/Hand/Thumb"]
 transform = Transform3D(0, 0.939693, -0.34202, -2.98023e-08, -0.34202, -0.939693, -1, 2.98023e-08, 0, -0.00955273, 0.125734, -0.0261126)
@@ -7182,7 +7182,7 @@ mesh = SubResource("ArrayMesh_r7e57")
 skeleton = NodePath("")
 
 [node name="finger3" type="Node3D" parent="TVBot/Node/Hip/ArmRight/Joint/Arm4/Hand"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+transform = Transform3D(0.100211, -0.0605496, -0.993122, 0.265953, 0.963458, -0.031905, 0.958763, -0.260926, 0.112653, 0.171875, -0.015625, 0.10625)
 
 [node name="cuboid17" type="MeshInstance3D" parent="TVBot/Node/Hip/ArmRight/Joint/Arm4/Hand/finger3"]
 transform = Transform3D(-1.19209e-07, 0.766044, -0.642788, 0, -0.642788, -0.766044, -1, 0, -1.19209e-07, -0.296875, 0.28125, 0.0625)
@@ -7195,7 +7195,7 @@ mesh = SubResource("ArrayMesh_aw5ap")
 skeleton = NodePath("")
 
 [node name="finger2" type="Node3D" parent="TVBot/Node/Hip/ArmRight/Joint/Arm4/Hand"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+transform = Transform3D(0.647409, 0.704859, -0.289887, -0.669811, 0.707679, 0.22482, 0.363613, 0.0486185, 0.93028, -0.078125, 0, 0.046875)
 
 [node name="cuboid19" type="MeshInstance3D" parent="TVBot/Node/Hip/ArmRight/Joint/Arm4/Hand/finger2"]
 transform = Transform3D(-1.19209e-07, 0.5, -0.866025, -5.96046e-08, -0.866025, -0.5, -1, 0, 1.19209e-07, -0.234375, 0.3125, 0.0625)
@@ -7208,7 +7208,7 @@ mesh = SubResource("ArrayMesh_1h14r")
 skeleton = NodePath("")
 
 [node name="finger1" type="Node3D" parent="TVBot/Node/Hip/ArmRight/Joint/Arm4/Hand"]
-transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+transform = Transform3D(0.568998, 0.365646, -0.736576, -0.499523, 0.865201, 0.0436192, 0.653235, 0.343118, 0.674947, -0.015625, -0.046875, -0.0625)
 
 [node name="cuboid21" type="MeshInstance3D" parent="TVBot/Node/Hip/ArmRight/Joint/Arm4/Hand/finger1"]
 transform = Transform3D(0, 0.642788, -0.766044, 0, -0.766044, -0.642788, -1, 0, 0, -0.265625, 0.296875, 0.0625)
@@ -7221,6 +7221,7 @@ mesh = SubResource("ArrayMesh_luihj")
 skeleton = NodePath("")
 
 [node name="Remote" type="Node3D" parent="TVBot/Node/Hip/ArmRight/Joint/Arm4/Hand"]
+transform = Transform3D(-1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 0, 0, 1, 0.0625, 0.34375, -0.25)
 
 [node name="RemoteBody" type="MeshInstance3D" parent="TVBot/Node/Hip/ArmRight/Joint/Arm4/Hand/Remote"]
 mesh = SubResource("ArrayMesh_nwkjw")

@@ -900,6 +900,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0625, 0.164063, -0.078125)
 
 [node name="ChannelButton" type="MeshInstance3D" parent="Node/Remote/ChButton"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0078125, 0)
+layers = 524288
 mesh = SubResource("ArrayMesh_s41vg")
 skeleton = NodePath("")
 
@@ -907,40 +908,48 @@ skeleton = NodePath("")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0625, 0.148438, -0.234375)
 
 [node name="PowerButton" type="MeshInstance3D" parent="Node/Remote/PowButton"]
+layers = 524288
 mesh = SubResource("ArrayMesh_vqb05")
 skeleton = NodePath("")
 
 [node name="RemoteBody" type="MeshInstance3D" parent="Node/Remote"]
+layers = 524288
 mesh = SubResource("ArrayMesh_prvf6")
 skeleton = NodePath("")
 
 [node name="cylinder" type="MeshInstance3D" parent="Node/Remote"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.148438, 0.140625)
+layers = 524288
 mesh = SubResource("ArrayMesh_s4cwj")
 skeleton = NodePath("")
 
 [node name="cuboid" type="MeshInstance3D" parent="Node/Remote"]
 transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 0.078125, 0.15625, 0.140625)
+layers = 524288
 mesh = SubResource("ArrayMesh_g4wy5")
 skeleton = NodePath("")
 
 [node name="cuboid2" type="MeshInstance3D" parent="Node/Remote"]
 transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -0.078125, 0.15625, 0.140625)
+layers = 524288
 mesh = SubResource("ArrayMesh_11ggv")
 skeleton = NodePath("")
 
 [node name="cuboid3" type="MeshInstance3D" parent="Node/Remote"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15625, 0.21875)
+layers = 524288
 mesh = SubResource("ArrayMesh_evcd4")
 skeleton = NodePath("")
 
 [node name="cuboid4" type="MeshInstance3D" parent="Node/Remote"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15625, 0.0625)
+layers = 524288
 mesh = SubResource("ArrayMesh_00yfu")
 skeleton = NodePath("")
 
 [node name="cuboid5" type="MeshInstance3D" parent="Node/Remote"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0625, 0.15625, -0.078125)
+layers = 524288
 mesh = SubResource("ArrayMesh_goat6")
 skeleton = NodePath("")
 
@@ -949,21 +958,25 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.078125, 0.125, 0.4375)
 
 [node name="Arm" type="MeshInstance3D" parent="Node/Arm2"]
 transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 0, 0, 0)
+layers = 524288
 mesh = SubResource("ArrayMesh_ngof7")
 skeleton = NodePath("")
 
 [node name="cylinder2" type="MeshInstance3D" parent="Node/Arm2"]
 transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 0.09375, 0.046875, 0)
+layers = 524288
 mesh = SubResource("ArrayMesh_1hadh")
 skeleton = NodePath("")
 
 [node name="cylinder3" type="MeshInstance3D" parent="Node/Arm2"]
 transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 0.015625, 0.03125, 0)
+layers = 524288
 mesh = SubResource("ArrayMesh_cp165")
 skeleton = NodePath("")
 
 [node name="cylinder4" type="MeshInstance3D" parent="Node/Arm2"]
 transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, -0.0625, 0.015625, 0)
+layers = 524288
 mesh = SubResource("ArrayMesh_fo8yj")
 skeleton = NodePath("")
 
@@ -973,11 +986,13 @@ skeleton = NodePath("")
 
 [node name="Palm1" type="MeshInstance3D" parent="Node/Hand/Palm"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.046875, 0.0625, 0.1875)
+layers = 524288
 mesh = SubResource("ArrayMesh_2ckmk")
 skeleton = NodePath("")
 
 [node name="Palm2" type="MeshInstance3D" parent="Node/Hand/Palm"]
 transform = Transform3D(0.906308, -0.422618, 0, 0.422618, 0.906308, 0, 0, 0, 1, 0.1875, 0.103125, 0.1875)
+layers = 524288
 mesh = SubResource("ArrayMesh_to7ii")
 skeleton = NodePath("")
 
@@ -989,11 +1004,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1875, 0.23131, 0.0625)
 
 [node name="cuboid6" type="MeshInstance3D" parent="Node/Hand/Thumb/thumb2"]
 transform = Transform3D(-1.19209e-07, 0.5, -0.866025, -5.96046e-08, -0.866025, -0.5, -1, 0, 1.19209e-07, -0.046875, 0.0811899, -1.21871e-10)
+layers = 524288
 mesh = SubResource("ArrayMesh_hgjsc")
 skeleton = NodePath("")
 
 [node name="cuboid7" type="MeshInstance3D" parent="Node/Hand/Thumb"]
 transform = Transform3D(0, 0.939693, -0.34202, -2.98023e-08, -0.34202, -0.939693, -1, 2.98023e-08, 0, -0.203125, 0.1875, 0.0625)
+layers = 524288
 mesh = SubResource("ArrayMesh_0u6bm")
 skeleton = NodePath("")
 
@@ -1002,11 +1019,13 @@ transform = Transform3D(0.37687, -0.0664523, -0.92388, 0.173648, 0.984808, 0, 0.
 
 [node name="cuboid8" type="MeshInstance3D" parent="Node/Hand/finger3"]
 transform = Transform3D(-1.19209e-07, 0.766044, -0.642788, 0, -0.642788, -0.766044, -1, 0, -1.19209e-07, -0.296875, 0.28125, 0.0625)
+layers = 524288
 mesh = SubResource("ArrayMesh_2hrij")
 skeleton = NodePath("")
 
 [node name="cuboid9" type="MeshInstance3D" parent="Node/Hand/finger3"]
 transform = Transform3D(0, 0.939693, -0.34202, -2.98023e-08, -0.34202, -0.939693, -1, 2.98023e-08, 0, -0.203125, 0.1875, 0.0625)
+layers = 524288
 mesh = SubResource("ArrayMesh_1db05")
 skeleton = NodePath("")
 
@@ -1015,11 +1034,13 @@ transform = Transform3D(0.92388, 0, -0.382683, 0, 1, 0, 0.382683, 0, 0.92388, 0.
 
 [node name="cuboid10" type="MeshInstance3D" parent="Node/Hand/finger2"]
 transform = Transform3D(-1.19209e-07, 0.5, -0.866025, -5.96046e-08, -0.866025, -0.5, -1, 0, 1.19209e-07, -0.234375, 0.3125, 0.0625)
+layers = 524288
 mesh = SubResource("ArrayMesh_twiyu")
 skeleton = NodePath("")
 
 [node name="cuboid11" type="MeshInstance3D" parent="Node/Hand/finger2"]
 transform = Transform3D(0, 0.939693, -0.34202, -2.98023e-08, -0.34202, -0.939693, -1, 2.98023e-08, 0, -0.203125, 0.1875, 0.0625)
+layers = 524288
 mesh = SubResource("ArrayMesh_7b5gy")
 skeleton = NodePath("")
 
@@ -1028,11 +1049,13 @@ transform = Transform3D(0.67559, 0, -0.737277, 0, 1, 0, 0.737277, 0, 0.67559, 0.
 
 [node name="cuboid12" type="MeshInstance3D" parent="Node/Hand/finger1"]
 transform = Transform3D(0, 0.939693, -0.34202, -2.98023e-08, -0.34202, -0.939693, -1, 2.98023e-08, 0, -0.203125, 0.1875, 0.0625)
+layers = 524288
 mesh = SubResource("ArrayMesh_a6cg5")
 skeleton = NodePath("")
 
 [node name="cuboid13" type="MeshInstance3D" parent="Node/Hand/finger1"]
 transform = Transform3D(0, 0.642788, -0.766044, 0, -0.766044, -0.642788, -1, 0, 0, -0.265625, 0.296875, 0.0625)
+layers = 524288
 mesh = SubResource("ArrayMesh_igndt")
 skeleton = NodePath("")
 
