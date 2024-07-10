@@ -2,14 +2,14 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c2nh5psqfcdvc"
+uid="uid://bu6tcjtirmv12"
 path.bptc="res://.godot/imported/FutureTile_0.png-755a14d71b387813c5b1b5abced36197.bptc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "ab893be564aebf1a0d722e80862f40aa"
+"md5": "19330e4585cd645b1d71a53d8420791b"
 }
 
 [deps]

@@ -2,14 +2,14 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b8sn3ngvln7r5"
+uid="uid://csfqkmulcx0jx"
 path.bptc="res://.godot/imported/FutureRamp_0.png-78adafaff273280b6683892bbfb89f20.bptc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "ab893be564aebf1a0d722e80862f40aa"
+"md5": "19330e4585cd645b1d71a53d8420791b"
 }
 
 [deps]

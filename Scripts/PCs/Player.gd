@@ -41,6 +41,7 @@ var checkpoint_lerp_t : float
 
 func restart() -> void:
 	var tween : Tween = create_tween()
+	set_visible(false)
 	tween.tween_property(self, "position", checkpoint, tween_duration)
 
 var speed : float
@@ -105,6 +106,9 @@ func _process(_delta: float) -> void:
 
 
 func _physics_process(delta: float) -> void:
+
+	if position == checkpoint:
+		set_visible(true)
 
 	# PHYSICS HANDLING / MOVEMENT
 

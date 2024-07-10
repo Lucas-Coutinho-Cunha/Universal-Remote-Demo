@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://b47s3rjslgkxk"
-path="res://.godot/imported/FutureTile.glb-e3ccdc3ee5b189402f60a3bf57a11783.scn"
+uid="uid://ca8rb7wn4ktg1"
+path="res://.godot/imported/Flag.glb-fc2dd000c30a7311a9f6c9258aee91e1.scn"
 
 [deps]
 
-source_file="res://Graphics/Models/FutureTile.glb"
-dest_files=["res://.godot/imported/FutureTile.glb-e3ccdc3ee5b189402f60a3bf57a11783.scn"]
+source_file="res://Graphics/Models/Flag.glb"
+dest_files=["res://.godot/imported/Flag.glb-fc2dd000c30a7311a9f6c9258aee91e1.scn"]
 
 [params]
 

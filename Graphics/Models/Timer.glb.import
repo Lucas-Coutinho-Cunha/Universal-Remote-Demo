@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://b47s3rjslgkxk"
-path="res://.godot/imported/FutureTile.glb-e3ccdc3ee5b189402f60a3bf57a11783.scn"
+uid="uid://dg0rdorpe8qur"
+path="res://.godot/imported/Timer.glb-c6d4a3f4f9cf85f2f167f8723f5c0be9.scn"
 
 [deps]
 
-source_file="res://Graphics/Models/FutureTile.glb"
-dest_files=["res://.godot/imported/FutureTile.glb-e3ccdc3ee5b189402f60a3bf57a11783.scn"]
+source_file="res://Graphics/Models/Timer.glb"
+dest_files=["res://.godot/imported/Timer.glb-c6d4a3f4f9cf85f2f167f8723f5c0be9.scn"]
 
 [params]
 
