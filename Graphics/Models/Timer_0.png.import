@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dhv5l0bfyt11s"
-path.bptc="res://.godot/imported/FutureWall1_0.png-1905b1f67c8fd3f8800068f9b79f701f.bptc.ctex"
+uid="uid://5uhm1ajl3n7d"
+path.bptc="res://.godot/imported/Timer_0.png-e6bbffe258400a92ab78adfca3011f2a.bptc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "094a5ebcbfa69eb4a0e8df7bc96ba681"
+"md5": "f1b1bd5c4b7f13c6d9da1f19d90edcb1"
 }
 
 [deps]
 
-source_file="res://Graphics/Models/FutureWall1_0.png"
-dest_files=["res://.godot/imported/FutureWall1_0.png-1905b1f67c8fd3f8800068f9b79f701f.bptc.ctex"]
+source_file="res://Graphics/Models/Timer_0.png"
+dest_files=["res://.godot/imported/Timer_0.png-e6bbffe258400a92ab78adfca3011f2a.bptc.ctex"]
 
 [params]
 
