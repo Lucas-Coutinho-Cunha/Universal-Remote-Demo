@@ -294,10 +294,9 @@ func grapple() -> void:
 	if grappling:
 		gravity = 0
 		if !hookpoint_get:
-			hookpoint = grapplecast.get_collision_point() + Vector3(0, 2.25, 0)
+			hookpoint = grapplecast.get_collision_point()
 			hookpoint_get = true
 		if hookpoint.distance_to(transform.origin) > 1:
-			print(hookpoint.distance_to(transform.origin))
 			if hookpoint_get:
 				transform.origin = lerp(transform.origin, hookpoint,  0.05)
 		else:
