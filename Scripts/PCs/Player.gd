@@ -1,5 +1,6 @@
 extends CharacterBody3D
 
+signal open_menu
 
 
 @onready var head := $Head
@@ -22,7 +23,17 @@ extends CharacterBody3D
 @onready var futuremap := $"../Map/Future/FutureGrid"
 @onready var plainmap := $"../Map/Plain/PlainGrid"
 
+@onready var music_aztec := $MusicAztec
+@onready var music_sandbox := $MusicSandbox
+@onready var music_future := $MusicFuture
 
+@onready var grapplecast := $Head/Camera3D/Grapplecast
+@onready var Xcol := $Xcollision
+@onready var Ycol := $Ycollision
+@onready var Zcol := $Zcollision
+
+@onready var menu := $PlayerScreen/Options
+var menu_state := 0
 
 var speed : float
 var gravity : float = 9.8
@@ -44,7 +55,11 @@ const FOV_CHANGE : float = 1.5
 var skilltype : int = 1
 var current_anim : String
 
-const GRAPPLE_RAY_MAX := 10
+var grappling := false
+var hookpoint : Vector3
+var hookpoint_get = false
+
+
 
 var dynamite := load("res://Nodes/PCs/Dynamite.tscn")
 var instance : RigidBody3D
@@ -52,35 +67,31 @@ var instance : RigidBody3D
 var run_mode := false
 var current_direction : Vector3 
 
-@onready var current_level := $".."
 
 func _ready() -> void:
 	
-	#camera_cast.set_target_position(Vector3(0, -1 * GRAPPLE_RAY_MAX, 0))
-	
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	if current_level.name == "Level1":
-		aztecmap.set_visible(false)
-		aztecmap.collision_layer = 2
-		sandboxmap.set_visible(false)
-		sandboxmap.collision_layer = 2
-		futuremap.set_visible(false)
-		futuremap.collision_layer = 2
-		current_anim = "None"
-	else:
-		aztecmap.set_visible(true)
-		aztecmap.collision_layer = 1
-		sandboxmap.set_visible(false)
-		sandboxmap.collision_layer = 2
-		futuremap.set_visible(false)
-		futuremap.collision_layer = 2
-		current_anim = "GrappleUse"
+	aztecmap.set_visible(false)
+	aztecmap.collision_layer = 2
+	music_aztec.set_volume_db(-80)
+	sandboxmap.set_visible(false)
+	sandboxmap.collision_layer = 2
+	music_sandbox.set_volume_db(-80)
+	futuremap.set_visible(false)
+	futuremap.collision_layer = 2
+	music_future.set_volume_db(-80)
+	
+	menu.set_visible(false)
+	
+	action_arm.set_visible(false)
+	current_anim = "None"
+
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		head.rotate_y(-event.relative.x * SENSITIVITY)
 		camera.rotate_x(-event.relative.y * SENSITIVITY)
-		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-50), deg_to_rad(80))
+		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-80), deg_to_rad(80))
 
 
 func _process(_delta: float) -> void:
@@ -133,6 +144,7 @@ func _physics_process(delta: float) -> void:
 
 
 	# INTERACTION HANDLING
+	grapple()
 	
 	if Input.is_action_just_pressed("M1"):
 		if !hand_anim.is_playing():
@@ -144,6 +156,7 @@ func _physics_process(delta: float) -> void:
 	elif Input.is_action_just_pressed("M2"):
 		if current_anim != "None":
 			if !hand_anim.is_playing():
+				action_arm.set_visible(true)
 				action_anim.play(current_anim)
 				
 				
@@ -151,8 +164,9 @@ func _physics_process(delta: float) -> void:
 				# GRAPPLING HOOK
 
 				if aztecmap.collision_layer == 1:
-					pass
-
+					if grapplecast.is_colliding():
+						if !grappling:
+							grappling = true
 
 				# DYNAMITE
 
@@ -179,59 +193,105 @@ func _physics_process(delta: float) -> void:
 
 
 
+	if Input.is_action_just_pressed("menu"):
+		if menu_state == 0:
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+			menu.set_visible(true)
+			menu_state = 1
+		else:
+			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+			menu.set_visible(false)
+			menu_state = 0
+
 
 
 	if Input.is_action_just_pressed("Ch1"):
 		if !hand_anim.is_playing():
 			aztecmap.set_visible(true)
 			aztecmap.collision_layer = 1
+			music_aztec.set_volume_db(0)
 			sandboxmap.set_visible(false)
 			sandboxmap.collision_layer = 2
+			music_sandbox.set_volume_db(-80)
 			futuremap.set_visible(false)
 			futuremap.collision_layer = 2
+			music_future.set_volume_db(-80)
 			plainmap.set_visible(false)
 			plainmap.collision_layer = 2
 			hand_anim.play("ChannelButtonAnimation")
+			action_arm.set_visible(true)
 			
 			current_anim = "GrappleUse"
 			channel_sfx.play()
 			action_anim.play("GrappleLoop")
 		
+		
+		
+		
+		
 	if Input.is_action_just_pressed("Ch2"):
 		if !hand_anim.is_playing():
 			aztecmap.set_visible(false)
 			aztecmap.collision_layer = 2
+			music_aztec.set_volume_db(-80)
 			sandboxmap.set_visible(true)
 			sandboxmap.collision_layer = 1
+			music_sandbox.set_volume_db(0)
 			futuremap.set_visible(false)
 			futuremap.collision_layer = 2
+			music_future.set_volume_db(-80)
 			plainmap.set_visible(false)
 			plainmap.collision_layer = 2
 			hand_anim.play("ChannelButtonAnimation")
+			action_arm.set_visible(false)
 			
 			current_anim = "ThrowDynamite"
 			channel_sfx.play()
+		
+		
+		
+		
 		
 	if Input.is_action_just_pressed("Ch3"):
 		if !hand_anim.is_playing():
 			aztecmap.set_visible(false)
 			aztecmap.collision_layer = 2
+			music_aztec.set_volume_db(-80)
 			sandboxmap.set_visible(false)
 			sandboxmap.collision_layer = 2
+			music_sandbox.set_volume_db(-80)
 			futuremap.set_visible(true)
 			futuremap.collision_layer = 1
+			music_future.set_volume_db(0)
 			plainmap.set_visible(false)
 			plainmap.collision_layer = 2
 			hand_anim.play("ChannelButtonAnimation")
+			action_arm.set_visible(false)
 			
 			current_anim = "Pump"
 			channel_sfx.play()
 
+
 	move_and_slide()
 
+func grapple() -> void:
+	if grappling:
+		gravity = 0
+		if !hookpoint_get:
+			hookpoint = grapplecast.get_collision_point() + Vector3(0, 2.25, 0)
+			hookpoint_get = true
+		if hookpoint.distance_to(transform.origin) > 1:
+			print(hookpoint.distance_to(transform.origin))
+			if hookpoint_get:
+				transform.origin = lerp(transform.origin, hookpoint,  0.05)
+		else:
+			grappling = false
+			hookpoint_get = false
+			gravity = 9.8
 
 func _headbob(time: float) -> Vector3:
 	var pos := Vector3.ZERO
 	pos.y = (sin(time * BOB_FREQ) * BOB_AMP) + 0.8
 	pos.x = cos(time * BOB_FREQ / 2) * BOB_AMP
 	return pos
+

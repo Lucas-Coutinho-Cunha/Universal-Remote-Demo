@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=3 uid="uid://drkcoyvm8ubkv"]
+[gd_scene load_steps=73 format=3 uid="uid://drkcoyvm8ubkv"]
 
 [ext_resource type="Script" path="res://Scripts/PCs/Player.gd" id="1_dtsbk"]
 [ext_resource type="Texture2D" uid="uid://irn5j6mcmjxi" path="res://Graphics/Crosshair.png" id="2_knkeo"]
@@ -12,7 +12,11 @@
 [ext_resource type="AudioStream" uid="uid://bcind3vgaqucx" path="res://Audio/fast-whoosh-118248.ogg" id="11_steh5"]
 [ext_resource type="AudioStream" uid="uid://dr57wqrnuaijw" path="res://Audio/explosion.mp3" id="11_uwfsy"]
 [ext_resource type="AudioStream" uid="uid://d2kc286yyo74j" path="res://Audio/roblox-pizza-place-scared.ogg" id="13_7stfy"]
-[ext_resource type="Texture2D" uid="uid://g0bpj08ade2a" path="res://Graphics/Models/Rope_0.png" id="13_tuh2o"]
+[ext_resource type="AudioStream" uid="uid://bbgaxl5fnygdb" path="res://Audio/NSMB Overworld theme but in minor.mp3" id="14_774mx"]
+[ext_resource type="AudioStream" uid="uid://ctiob3i0lya5e" path="res://Audio/Overworld Theme New Super Mario Bros DS.mp3" id="15_lwsf1"]
+[ext_resource type="AudioStream" uid="uid://dg7iykbdbahdt" path="res://Audio/New Super Mario Bros - Overworld [Remix].mp3" id="16_c638d"]
+[ext_resource type="Texture2D" uid="uid://dyoswldjfjrhb" path="res://Graphics/Options.png" id="17_nrhur"]
+[ext_resource type="Script" path="res://Volume.gd" id="18_kq4yd"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_exu03"]
 points = PackedVector3Array(-0.125207, -0.532801, -0.480507, 0.0227831, 0.47607, 0.498884, 0.169713, 0.559144, 0.464172, 0.231051, -0.803591, 0.320455, 0.40741, 0.651043, -0.243523, -0.482789, 0.594843, 0.0822132, -0.362868, -0.682312, 0.289697, 0.469044, -0.654529, -0.0662713, -0.127444, 0.842701, -0.338103, -0.393435, -0.683942, -0.244717, 0.438255, 0.623309, 0.200849, 0.0841477, 0.977454, 0.114795, -0.0682023, -0.976458, -0.12927, 0.20055, -0.563129, -0.451454, -0.185527, 0.595453, -0.453475, -0.273363, 0.592268, 0.407754, -0.00693649, -0.476823, 0.49966, 0.375821, -0.588614, 0.316955, 0.111579, 0.563059, -0.481177, -0.41725, 0.527866, -0.270497, -0.484546, -0.596972, -0.0665097, -0.279747, 0.908561, 0.0533361, -0.250197, -0.880712, 0.205319, 0.263647, -0.902771, -0.127394, 0.293368, 0.871526, -0.157196, 0.373412, -0.526319, -0.328246, 0.499663, 0.476641, -0.00688856, 0.0531056, 0.875001, 0.324703, -0.154543, -0.590854, 0.465879, -0.0972799, -0.782358, -0.398188, -0.387649, -0.498171, 0.31565, -0.30068, -0.587995, -0.388901)
@@ -474,48 +478,6 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_fali1")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b1k5u"]
-resource_name = "material_0"
-transparency = 2
-alpha_scissor_threshold = 0.05
-alpha_antialiasing_mode = 0
-cull_mode = 2
-albedo_texture = ExtResource("13_tuh2o")
-texture_filter = 0
-texture_repeat = false
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_ae322"]
-_surfaces = [{
-"aabb": AABB(-0.03125, -1, -0.03125, 0.06251, 2.00001, 0.06251),
-"format": 34896613377,
-"index_count": 36,
-"index_data": PackedByteArray(2, 0, 1, 0, 0, 0, 2, 0, 3, 0, 1, 0, 6, 0, 5, 0, 4, 0, 6, 0, 7, 0, 5, 0, 4, 0, 2, 0, 0, 0, 4, 0, 5, 0, 2, 0, 3, 0, 6, 0, 1, 0, 3, 0, 7, 0, 6, 0, 1, 0, 4, 0, 0, 0, 1, 0, 6, 0, 4, 0, 5, 0, 3, 0, 2, 0, 5, 0, 7, 0, 3, 0),
-"name": "material_0",
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 8,
-"vertex_data": PackedByteArray(244, 255, 254, 255, 244, 255, 0, 0, 244, 255, 0, 0, 244, 255, 0, 0, 244, 255, 254, 255, 0, 0, 0, 0, 244, 255, 0, 0, 0, 0, 0, 0, 0, 0, 254, 255, 244, 255, 0, 0, 0, 0, 254, 255, 0, 0, 0, 0, 0, 0, 0, 0, 244, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
-}]
-blend_shape_mode = 0
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_y8ow2"]
-resource_name = "blockbench_export_mesh"
-_surfaces = [{
-"aabb": AABB(-0.03125, -1, -0.03125, 0.06251, 2.00001, 0.06251),
-"attribute_data": PackedByteArray(0, 0, 0, 0, 0, 0, 255, 255, 255, 7, 0, 0, 255, 7, 255, 255, 255, 23, 0, 0, 255, 15, 0, 0, 255, 23, 255, 255, 255, 15, 255, 255, 255, 71, 255, 7, 255, 71, 0, 0, 255, 63, 255, 7, 255, 63, 0, 0, 255, 71, 255, 15, 255, 63, 255, 15, 255, 71, 255, 23, 255, 63, 255, 23, 255, 39, 0, 0, 255, 31, 0, 0, 255, 39, 255, 255, 255, 31, 255, 255, 255, 47, 0, 0, 255, 47, 255, 255, 255, 55, 0, 0, 255, 55, 255, 255),
-"format": 34896613399,
-"index_count": 36,
-"index_data": PackedByteArray(2, 0, 1, 0, 0, 0, 2, 0, 3, 0, 1, 0, 6, 0, 5, 0, 4, 0, 6, 0, 7, 0, 5, 0, 10, 0, 9, 0, 8, 0, 10, 0, 11, 0, 9, 0, 14, 0, 13, 0, 12, 0, 14, 0, 15, 0, 13, 0, 18, 0, 17, 0, 16, 0, 18, 0, 19, 0, 17, 0, 22, 0, 21, 0, 20, 0, 22, 0, 23, 0, 21, 0),
-"material": SubResource("StandardMaterial3D_b1k5u"),
-"name": "material_0",
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 24,
-"vertex_data": PackedByteArray(244, 255, 254, 255, 244, 255, 255, 191, 244, 255, 0, 0, 244, 255, 255, 191, 244, 255, 254, 255, 0, 0, 255, 191, 244, 255, 0, 0, 0, 0, 255, 191, 0, 0, 254, 255, 244, 255, 255, 191, 0, 0, 254, 255, 0, 0, 255, 191, 0, 0, 0, 0, 244, 255, 255, 191, 0, 0, 0, 0, 0, 0, 255, 191, 244, 255, 254, 255, 244, 255, 255, 191, 244, 255, 254, 255, 0, 0, 255, 191, 0, 0, 254, 255, 244, 255, 255, 191, 0, 0, 254, 255, 0, 0, 255, 191, 244, 255, 0, 0, 244, 255, 255, 191, 0, 0, 0, 0, 244, 255, 255, 191, 244, 255, 0, 0, 0, 0, 255, 191, 0, 0, 0, 0, 0, 0, 255, 191, 244, 255, 254, 255, 244, 255, 0, 128, 0, 0, 254, 255, 244, 255, 0, 128, 244, 255, 0, 0, 244, 255, 0, 128, 0, 0, 0, 0, 244, 255, 0, 128, 244, 255, 254, 255, 0, 0, 255, 255, 244, 255, 0, 0, 0, 0, 255, 255, 0, 0, 254, 255, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 255, 255, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255)
-}]
-blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_ae322")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4xrlx"]
 resource_name = "material_1"
@@ -1589,7 +1551,7 @@ script = ExtResource("1_dtsbk")
 
 [node name="PlayerScreen" type="CanvasLayer" parent="."]
 
-[node name="TextureRect" type="TextureRect" parent="PlayerScreen"]
+[node name="crosshair" type="TextureRect" parent="PlayerScreen"]
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("2_knkeo")
@@ -1612,6 +1574,48 @@ render_target_update_mode = 4
 [node name="Subviewport_cam" type="Camera3D" parent="PlayerScreen/SubViewportContainer/SubViewport"]
 cull_mask = 524288
 
+[node name="Options" type="Control" parent="PlayerScreen"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="PlayerScreen/Options"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("17_nrhur")
+
+[node name="SFX_volume" type="HSlider" parent="PlayerScreen/Options/TextureRect"]
+custom_minimum_size = Vector2(600, 100)
+layout_mode = 2
+offset_left = 1173.0
+offset_top = 598.0
+offset_right = 1773.0
+offset_bottom = 698.0
+grow_horizontal = 2
+grow_vertical = 2
+max_value = 1.0
+step = 0.001
+script = ExtResource("18_kq4yd")
+bus_name = "sfx"
+
+[node name="Music_volume" type="HSlider" parent="PlayerScreen/Options/TextureRect"]
+custom_minimum_size = Vector2(600, 100)
+layout_mode = 2
+offset_left = 1039.0
+offset_top = 434.0
+offset_right = 1639.0
+offset_bottom = 534.0
+grow_horizontal = 2
+grow_vertical = 2
+max_value = 1.0
+step = 0.001
+script = ExtResource("18_kq4yd")
+bus_name = "music"
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("ConvexPolygonShape3D_exu03")
 
@@ -1622,17 +1626,24 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 cull_mask = 524287
 far = 800.0
 
+[node name="Grapplecast" type="RayCast3D" parent="Head/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.802861, -0.131695, -2.47964)
+target_position = Vector3(0, -50, 0)
+
 [node name="Arm" parent="Head/Camera3D" instance=ExtResource("2_pgpvo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.529129, -0.601383, -1.06356)
 
 [node name="power_sfx" type="AudioStreamPlayer" parent="Head/Camera3D/Arm"]
 stream = ExtResource("3_mm75g")
+bus = &"SFX"
 
 [node name="channel_sfx" type="AudioStreamPlayer" parent="Head/Camera3D/Arm"]
 stream = ExtResource("4_r4i6m")
+bus = &"SFX"
 
 [node name="burunyuu_sfx" type="AudioStreamPlayer" parent="Head/Camera3D/Arm"]
 stream = ExtResource("5_f02w4")
+bus = &"SFX"
 
 [node name="Action_Arm" type="Node3D" parent="Head/Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.488547, -0.620983, -1.63079)
@@ -1756,11 +1767,6 @@ skeleton = NodePath("")
 [node name="Whip" type="Node3D" parent="Head/Camera3D/Action_Arm/Node"]
 transform = Transform3D(0.945447, 0.144631, 0.291912, -0.0873732, 0.975793, -0.200484, -0.313842, 0.164042, 0.935197, -0.34375, 0.71875, -0.703125)
 
-[node name="Rope2" type="MeshInstance3D" parent="Head/Camera3D/Action_Arm/Node/Whip"]
-transform = Transform3D(0.945446, -0.313842, 0.0873726, 0.144631, 0.164042, -0.975793, 0.291912, 0.935197, 0.200484, 0.399288, -0.406526, -1.00918)
-mesh = SubResource("ArrayMesh_y8ow2")
-skeleton = NodePath("")
-
 [node name="cuboid9" type="MeshInstance3D" parent="Head/Camera3D/Action_Arm/Node/Whip"]
 transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 0.109375, -0.25, 0.28125)
 layers = 524288
@@ -1829,12 +1835,41 @@ libraries = {
 
 [node name="grapple_sfx" type="AudioStreamPlayer" parent="Head/Camera3D/Action_Arm"]
 stream = ExtResource("11_steh5")
+bus = &"SFX"
 
 [node name="dynamite_sfx" type="AudioStreamPlayer" parent="Head/Camera3D/Action_Arm"]
 stream = ExtResource("11_uwfsy")
+bus = &"SFX"
 
 [node name="pump_sfx" type="AudioStreamPlayer" parent="Head/Camera3D/Action_Arm"]
 stream = ExtResource("13_7stfy")
+bus = &"SFX"
 
-[node name="RayCast3D" type="RayCast3D" parent="Head/Camera3D/Action_Arm"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.314314, 0.489288, -0.848854)
+[node name="MusicAztec" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_774mx")
+autoplay = true
+bus = &"Music"
+
+[node name="MusicSandbox" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_lwsf1")
+autoplay = true
+bus = &"Music"
+
+[node name="MusicFuture" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_c638d")
+autoplay = true
+bus = &"Music"
+
+[node name="Xcollision" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.82023, 0, 0)
+target_position = Vector3(2, 0, 0)
+
+[node name="Ycollision" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.34812, 0)
+target_position = Vector3(0, 3, 0)
+
+[node name="Zcollision" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.890519)
+target_position = Vector3(0, 0, 2)
+
+[connection signal="open_menu" from="." to="PlayerScreen/Options" method="_on_player_open_menu"]

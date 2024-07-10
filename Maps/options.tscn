@@ -1,0 +1,46 @@
+[gd_scene load_steps=3 format=3 uid="uid://cqqkv0gesaw6x"]
+
+[ext_resource type="Texture2D" uid="uid://dyoswldjfjrhb" path="res://Graphics/Options.png" id="1_n3s3g"]
+[ext_resource type="Script" path="res://Volume.gd" id="2_pa7ty"]
+
+[node name="Options" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_n3s3g")
+
+[node name="SFX_volume" type="HSlider" parent="TextureRect"]
+custom_minimum_size = Vector2(600, 100)
+layout_mode = 2
+offset_left = 1173.0
+offset_top = 598.0
+offset_right = 1773.0
+offset_bottom = 698.0
+grow_horizontal = 2
+grow_vertical = 2
+max_value = 1.0
+step = 0.001
+script = ExtResource("2_pa7ty")
+bus_name = "sfx"
+
+[node name="Music_volume" type="HSlider" parent="TextureRect"]
+custom_minimum_size = Vector2(600, 100)
+layout_mode = 2
+offset_left = 1039.0
+offset_top = 434.0
+offset_right = 1639.0
+offset_bottom = 534.0
+grow_horizontal = 2
+grow_vertical = 2
+max_value = 1.0
+step = 0.001
+script = ExtResource("2_pa7ty")
+bus_name = "music"

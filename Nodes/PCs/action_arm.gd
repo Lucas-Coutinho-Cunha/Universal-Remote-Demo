@@ -1,6 +1,2 @@
-extends Node3D
-
-
-func grapple() -> void:
-	if Input.is_action_just_pressed("M2"):
-		pass
+func _on_player_on_grapple() -> void:
+	pass # Replace with function body.

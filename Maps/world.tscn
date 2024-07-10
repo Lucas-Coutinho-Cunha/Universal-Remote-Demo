@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://brgplr88n6ybm"]
+[gd_scene load_steps=7 format=3 uid="uid://brgplr88n6ybm"]
 
 [ext_resource type="MeshLibrary" uid="uid://c0ddo7jvuh8ym" path="res://Maps/Aztec.tres" id="1_8nncv"]
 [ext_resource type="MeshLibrary" uid="uid://dfldjkld2mw6n" path="res://Maps/Future.tres" id="1_wxai4"]
@@ -13,10 +13,7 @@ volumetric_fog_density = 0.002
 volumetric_fog_albedo = Color(0.670588, 1, 1, 1)
 volumetric_fog_emission = Color(0, 0, 0.913725, 1)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_f2fek"]
-size = Vector3(2, 3, 2.5)
-
-[node name="Level1" type="Node3D"]
+[node name="Level" type="Node3D"]
 
 [node name="Map" type="Node3D" parent="."]
 
@@ -67,15 +64,8 @@ data = {
 }
 metadata/_editor_floor_ = Vector3(0, 16, 0)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Map"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.3363, 1.58928, 0.496772)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Map/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.201736, 0.287596, -0.0484734)
-shape = SubResource("BoxShape3D_f2fek")
-
-[node name="OmniLight3D" type="OmniLight3D" parent="Map"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.8319, 1.53198, 0.515501)
+[node name="OmniLight3D" type="OmniLight3D" parent="Map/Plain/PlainGrid"]
+transform = Transform3D(1.00492, 0, 0, 0, 1.00492, 0, 0, 0, 1.00492, 35.0158, 1.53952, 0.56671)
 light_color = Color(0.839216, 1, 1, 1)
 light_energy = 2.0
 
