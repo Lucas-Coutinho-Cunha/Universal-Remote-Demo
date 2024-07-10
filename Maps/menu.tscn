@@ -6863,7 +6863,7 @@ script = ExtResource("1_xbc40")
 [node name="Node" type="Node3D" parent="TVBot"]
 
 [node name="Hip" type="Node3D" parent="TVBot/Node"]
-transform = Transform3D(1, 0, 0, 0, 0.999826, 0.018646, 0, -0.018646, 0.999826, 0, 1.54688, 0)
+transform = Transform3D(1, 0, 0, 0, 0.999249, 0.0387414, 0, -0.0387414, 0.999249, 0, 1.54688, 0)
 
 [node name="cuboid" type="MeshInstance3D" parent="TVBot/Node/Hip"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.26563, 0)
@@ -6871,7 +6871,7 @@ mesh = SubResource("ArrayMesh_5ybst")
 skeleton = NodePath("")
 
 [node name="Head" type="Node3D" parent="TVBot/Node/Hip"]
-transform = Transform3D(0.988838, 0.14899, 0, -0.14899, 0.988838, 0, 0, 0, 1, 0, 2.64063, 0)
+transform = Transform3D(0.985643, 0.168838, 0, -0.168838, 0.985643, 0, 0, 0, 1, 0, 2.64063, 0)
 
 [node name="cuboid2" type="MeshInstance3D" parent="TVBot/Node/Hip/Head"]
 transform = Transform3D(0.998843, 0.0476372, -0.00663998, -0.0472566, 0.997683, 0.0489351, 0.00895574, -0.0485647, 0.99878, 0.000652671, -0.00468159, 0.0154795)
@@ -7120,7 +7120,7 @@ mesh = SubResource("ArrayMesh_iw5bt")
 skeleton = NodePath("")
 
 [node name="Joint" type="Node3D" parent="TVBot/Node/Hip/ArmRight"]
-transform = Transform3D(0.520918, 0.259202, 0.813301, 0.662736, 0.477678, -0.576719, -0.537983, 0.839428, 0.0770491, 0.0156845, 0, -1.03398)
+transform = Transform3D(0.537321, 0.242677, 0.807709, 0.65132, 0.489018, -0.58021, -0.535788, 0.837837, 0.104699, 0.0156845, 0, -1.03398)
 
 [node name="cylinder11" type="MeshInstance3D" parent="TVBot/Node/Hip/ArmRight/Joint"]
 transform = Transform3D(0, -0.999048, -0.0436194, 1, 0, 0, 0, -0.0436194, 0.999048, 0.0624405, 0, 0.00272621)
@@ -8376,14 +8376,14 @@ skeleton = NodePath("")
 [connection signal="mouse_entered" from="TVBot/Node/Hip/Head/Buttons/ButtonStart/StartCol" to="TVBot" method="_on_start_col_mouse_entered"]
 [connection signal="mouse_exited" from="TVBot/Node/Hip/Head/Buttons/ButtonStart/StartCol" to="TVBot" method="_on_start_col_mouse_exited"]
 [connection signal="input_event" from="TVBot/Node/Hip/Head/Buttons/ButtonExit2/exit2_col" to="TVBot" method="_on_exit_2_col_input_event"]
-[connection signal="mouse_entered" from="TVBot/Node/Hip/Head/Buttons/ButtonExit2/exit2_col" to="TVBot" method="_on_exit_2_col_mouse_entered"]
 [connection signal="mouse_entered" from="TVBot/Node/Hip/Head/Buttons/ButtonExit2/exit2_col" to="TVBot" method="_on_area_3d_mouse_entered"]
+[connection signal="mouse_entered" from="TVBot/Node/Hip/Head/Buttons/ButtonExit2/exit2_col" to="TVBot" method="_on_exit_2_col_mouse_entered"]
 [connection signal="input_event" from="TVBot/Node/Hip/Head/Buttons/ButtonOptions2/options2_col" to="TVBot" method="_on_options_2_col_input_event"]
-[connection signal="mouse_entered" from="TVBot/Node/Hip/Head/Buttons/ButtonOptions2/options2_col" to="TVBot" method="_on_options_2_col_mouse_entered"]
 [connection signal="mouse_entered" from="TVBot/Node/Hip/Head/Buttons/ButtonOptions2/options2_col" to="TVBot" method="_on_area_3d_mouse_entered"]
+[connection signal="mouse_entered" from="TVBot/Node/Hip/Head/Buttons/ButtonOptions2/options2_col" to="TVBot" method="_on_options_2_col_mouse_entered"]
 [connection signal="input_event" from="TVBot/Node/Hip/Head/Buttons/ButtonStart2/start2_col" to="TVBot" method="_on_start_2_col_input_event"]
-[connection signal="mouse_entered" from="TVBot/Node/Hip/Head/Buttons/ButtonStart2/start2_col" to="TVBot" method="_on_start_2_col_mouse_entered"]
 [connection signal="mouse_entered" from="TVBot/Node/Hip/Head/Buttons/ButtonStart2/start2_col" to="TVBot" method="_on_area_3d_mouse_entered"]
+[connection signal="mouse_entered" from="TVBot/Node/Hip/Head/Buttons/ButtonStart2/start2_col" to="TVBot" method="_on_start_2_col_mouse_entered"]
 [connection signal="mouse_entered" from="TVBot/Node/Hip/Head/Buttons/ButtonOptions/OptionsCol" to="TVBot" method="_on_options_col_mouse_entered"]
 [connection signal="mouse_exited" from="TVBot/Node/Hip/Head/Buttons/ButtonOptions/OptionsCol" to="TVBot" method="_on_options_col_mouse_exited"]
 [connection signal="mouse_entered" from="TVBot/Node/Hip/Head/Buttons/ButtonExit/ExitCol" to="TVBot" method="_on_exit_col_mouse_entered"]

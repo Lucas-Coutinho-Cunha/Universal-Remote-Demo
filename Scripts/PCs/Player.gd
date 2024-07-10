@@ -274,6 +274,8 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
+
+
 func grapple() -> void:
 	if grappling:
 		gravity = 0
@@ -288,6 +290,8 @@ func grapple() -> void:
 			grappling = false
 			hookpoint_get = false
 			gravity = 9.8
+
+
 
 func _headbob(time: float) -> Vector3:
 	var pos := Vector3.ZERO
