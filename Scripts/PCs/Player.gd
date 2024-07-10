@@ -56,6 +56,9 @@ const BOB_FREQ : float = 2.0
 const BOB_AMP : float = 0.08
 var t_bob : float = 0.0
 
+#FOV
+const BASE_FOV : float = 75.0
+const FOV_CHANGE : float = 1.5
 
 #Skills
 var skilltype : int = 1
@@ -144,6 +147,11 @@ func _physics_process(delta: float) -> void:
 	camera.transform.origin = _headbob(t_bob)
 	
 	
+	#FOV
+	var velocity_clamped : float = clamp(velocity.length(), 0.5, SPRINT_SPEED * 2)
+	var target_fov := BASE_FOV + FOV_CHANGE * velocity_clamped
+	camera.fov = lerp(camera.fov, target_fov, delta * 8.0)
+
 
 	# INTERACTION HANDLING
 	if Input.is_action_just_pressed("restart"):
@@ -173,6 +181,12 @@ func _physics_process(delta: float) -> void:
 					if grapplecast.is_colliding():
 						if !grappling:
 							grappling = true
+							velocity = Vector3(0, 0, 0)
+						else:
+							grappling = false
+							hookpoint_get = false
+							gravity = 9.8
+							action_anim.play("GrappleLoop")
 
 				# DYNAMITE
 
@@ -191,8 +205,8 @@ func _physics_process(delta: float) -> void:
 					if run_mode == false:
 						future_sfx.play()
 						run_mode = true
-						current_direction.x = clamp(direction.x, -1, 1) * 2
-						current_direction.z = clamp(direction.z, -1, 1) * 2
+						current_direction.x = clamp(direction.x, -1, 1) * 1.5
+						current_direction.z = clamp(direction.z, -1, 1) * 1.5
 						
 					elif run_mode == true:
 						run_mode = false
@@ -295,6 +309,8 @@ func grapple() -> void:
 			grappling = false
 			hookpoint_get = false
 			gravity = 9.8
+			action_anim.play("GrappleLoop")
+			
 
 
 
