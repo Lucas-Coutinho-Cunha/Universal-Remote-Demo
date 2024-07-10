@@ -56,9 +56,6 @@ const BOB_FREQ : float = 2.0
 const BOB_AMP : float = 0.08
 var t_bob : float = 0.0
 
-#FOV
-const BASE_FOV : float = 75.0
-const FOV_CHANGE : float = 1.5
 
 #Skills
 var skilltype : int = 1
@@ -147,11 +144,6 @@ func _physics_process(delta: float) -> void:
 	camera.transform.origin = _headbob(t_bob)
 	
 	
-	#FOV
-	var velocity_clamped : float = clamp(velocity.length(), 0.5, SPRINT_SPEED * 2)
-	var target_fov := BASE_FOV + FOV_CHANGE * velocity_clamped
-	camera.fov = lerp(camera.fov, target_fov, delta * 8.0)
-
 
 	# INTERACTION HANDLING
 	if Input.is_action_just_pressed("restart"):
