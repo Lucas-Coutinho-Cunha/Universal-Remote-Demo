@@ -2,7 +2,6 @@ extends CharacterBody3D
 
 signal open_menu
 
-
 @onready var head := $Head
 @onready var camera := $Head/Camera3D
 @onready var subviewport_cam := $PlayerScreen/SubViewportContainer/SubViewport/Subviewport_cam
@@ -35,6 +34,15 @@ signal open_menu
 @onready var menu := $PlayerScreen/Options
 var menu_state := 0
 
+@export_category("Checkpoint")
+@export var checkpoint : Vector3
+@export var tween_duration : float
+var checkpoint_lerp_t : float
+
+func restart() -> void:
+	var tween : Tween = create_tween()
+	tween.tween_property(self, "position", checkpoint, tween_duration)
+
 var speed : float
 var gravity : float = 9.8
 const SPRINT_SPEED : float = 8.0
@@ -58,8 +66,6 @@ var current_anim : String
 var grappling := false
 var hookpoint : Vector3
 var hookpoint_get = false
-
-
 
 var dynamite := load("res://Nodes/PCs/Dynamite.tscn")
 var instance : RigidBody3D
@@ -87,7 +93,7 @@ func _ready() -> void:
 	current_anim = "None"
 
 
-func _unhandled_input(event: InputEvent) -> void:
+func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		head.rotate_y(-event.relative.x * SENSITIVITY)
 		camera.rotate_x(-event.relative.y * SENSITIVITY)
@@ -144,6 +150,10 @@ func _physics_process(delta: float) -> void:
 
 
 	# INTERACTION HANDLING
+	if Input.is_action_just_pressed("restart"):
+		restart()
+
+
 	grapple()
 	
 	if Input.is_action_just_pressed("M1"):
