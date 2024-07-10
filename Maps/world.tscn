@@ -1,10 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://brgplr88n6ybm"]
+[gd_scene load_steps=10 format=3 uid="uid://brgplr88n6ybm"]
 
 [ext_resource type="MeshLibrary" uid="uid://c0ddo7jvuh8ym" path="res://Maps/Aztec.tres" id="1_8nncv"]
 [ext_resource type="MeshLibrary" uid="uid://dfldjkld2mw6n" path="res://Maps/Future.tres" id="1_wxai4"]
 [ext_resource type="MeshLibrary" uid="uid://clt5ad6j3ecbd" path="res://Maps/Sandbox.tres" id="2_7g1h4"]
 [ext_resource type="MeshLibrary" uid="uid://2gmq2mxe5wm2" path="res://Maps/Plain.tres" id="4_ukrax"]
 [ext_resource type="Material" uid="uid://kkg82psd6yx1" path="res://Materials/CRT.tres" id="6_1tef2"]
+[ext_resource type="Script" path="res://Maps/ShaderSelector.gd" id="7_fb4uq"]
+[ext_resource type="Material" uid="uid://e1yg3moakgo4" path="res://Materials/Rewind.tres" id="8_wkvv5"]
 [ext_resource type="PackedScene" uid="uid://drkcoyvm8ubkv" path="res://Nodes/PCs/player.tscn" id="9_jjgri"]
 
 [sub_resource type="Environment" id="Environment_bx8uk"]
@@ -83,3 +85,5 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("7_fb4uq")
+shader_materials = Array[Material]([ExtResource("6_1tef2"), ExtResource("8_wkvv5")])

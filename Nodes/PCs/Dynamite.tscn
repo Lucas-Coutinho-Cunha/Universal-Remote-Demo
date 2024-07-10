@@ -316,6 +316,8 @@ radius = 3.0
 
 [node name="dynamite" type="RigidBody3D"]
 script = ExtResource("1_ba1j7")
+blast_force = 100.0
+falloff = 1.5
 
 [node name="Node" type="Node3D" parent="."]
 
