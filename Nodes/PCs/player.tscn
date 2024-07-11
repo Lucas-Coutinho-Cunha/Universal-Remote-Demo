@@ -1553,8 +1553,6 @@ _data = {
 [node name="Player" type="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.315695, 1.38574, 2.07317)
 script = ExtResource("1_dtsbk")
-checkpoint = Vector3(-0.315695, 1.38574, 2.07317)
-tween_duration = 0.1
 
 [node name="PlayerScreen" type="CanvasLayer" parent="."]
 
