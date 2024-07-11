@@ -51,6 +51,7 @@ func restart() -> void:
 	set_visible(false)
 	grappling = false
 	tween.tween_property(self, "position", checkpoint, tween_duration)
+	hookpoint_get = false
 
 var speed : float
 var gravity : float = 19.6

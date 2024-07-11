@@ -1,9 +1,9 @@
 [gd_scene load_steps=157 format=3 uid="uid://brgplr88n6ybm"]
 
-[ext_resource type="MeshLibrary" uid="uid://ddfvvscrro1a1" path="res://Maps/Aztec.tres" id="1_8nncv"]
+[ext_resource type="MeshLibrary" uid="uid://c0ddo7jvuh8ym" path="res://Maps/Aztec.tres" id="1_8nncv"]
 [ext_resource type="Texture2D" uid="uid://c0awhpsntx17v" path="res://Graphics/rural_asphalt_road_1k.exr" id="1_kfqnp"]
-[ext_resource type="MeshLibrary" uid="uid://ccxngf0eje08f" path="res://Maps/Future.tres" id="1_wxai4"]
-[ext_resource type="MeshLibrary" uid="uid://ckasy5vnuq2af" path="res://Maps/Sandbox.tres" id="2_7g1h4"]
+[ext_resource type="MeshLibrary" uid="uid://dfldjkld2mw6n" path="res://Maps/Future.tres" id="1_wxai4"]
+[ext_resource type="MeshLibrary" uid="uid://clt5ad6j3ecbd" path="res://Maps/Sandbox.tres" id="2_7g1h4"]
 [ext_resource type="MeshLibrary" uid="uid://2gmq2mxe5wm2" path="res://Maps/Plain.tres" id="4_ukrax"]
 [ext_resource type="Material" uid="uid://kkg82psd6yx1" path="res://Materials/CRT.tres" id="6_1tef2"]
 [ext_resource type="Texture2D" uid="uid://mwpru6wa5abi" path="res://Graphics/Models/BrokenRobot_0.png" id="6_3mbk1"]
@@ -2645,7 +2645,6 @@ skeleton = NodePath("")
 transform = Transform3D(1, 0, 0, 0, 0.887011, 0.461749, 0, -0.461749, 0.887011, 0, 2.64063, 0)
 
 [node name="cuboid2" type="MeshInstance3D" parent="Map/bots/BrokenBot/Node/Hip/Head"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_kvxqe")
 skeleton = NodePath("")
 
