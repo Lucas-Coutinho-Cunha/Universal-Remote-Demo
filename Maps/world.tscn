@@ -5,10 +5,10 @@
 [ext_resource type="MeshLibrary" uid="uid://dfldjkld2mw6n" path="res://Maps/Future.tres" id="1_wxai4"]
 [ext_resource type="MeshLibrary" uid="uid://clt5ad6j3ecbd" path="res://Maps/Sandbox.tres" id="2_7g1h4"]
 [ext_resource type="MeshLibrary" uid="uid://2gmq2mxe5wm2" path="res://Maps/Plain.tres" id="4_ukrax"]
-[ext_resource type="Material" uid="uid://kkg82psd6yx1" path="res://Materials/CRT.tres" id="6_1tef2"]
 [ext_resource type="Texture2D" uid="uid://mwpru6wa5abi" path="res://Graphics/Models/BrokenRobot_0.png" id="6_3mbk1"]
 [ext_resource type="PackedScene" uid="uid://od2wrst25bxo" path="res://Nodes/NPCs/checkpoint_flag.tscn" id="7_klq7k"]
 [ext_resource type="PackedScene" uid="uid://drkcoyvm8ubkv" path="res://Nodes/PCs/player.tscn" id="9_jjgri"]
+[ext_resource type="Material" uid="uid://5eow4yjl6t1f" path="res://Materials/Speed.tres" id="9_pdppj"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_5kmct"]
 panorama = ExtResource("1_kfqnp")
@@ -3968,7 +3968,7 @@ tween_duration = 0.5
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-material = ExtResource("6_1tef2")
+material = ExtResource("9_pdppj")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

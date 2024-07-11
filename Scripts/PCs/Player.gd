@@ -225,9 +225,11 @@ func _physics_process(delta: float) -> void:
 						current_direction.x = clamp(direction.x, -1, 1) * 1.5
 						current_direction.z = clamp(direction.z, -1, 1) * 1.5
 						
-					elif run_mode == true:
-						run_mode = false
+					# elif run_mode == true:
+						# run_mode = false
 
+	if Input.is_action_just_released("M2"):
+		run_mode = false
 
 
 	if Input.is_action_just_pressed("menu"):
