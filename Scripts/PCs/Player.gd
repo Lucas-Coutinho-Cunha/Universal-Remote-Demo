@@ -45,18 +45,26 @@ var menu_state := 0
 @export var checkpoint : Vector3
 @export var tween_duration : float
 var checkpoint_lerp_t : float
+var rewind_done : bool
+var last_restart : float
+var restart_cooldown : float = 2.0
 
 @onready var timer_display = $Head/Camera3D/Sprite3D/SubViewport
 var checkpoints_taken := 0
 
 
+
 func restart() -> void:
+	
 	var tween : Tween = create_tween()
 	set_visible(false)
 	rewind_shader.emit(true)
 	grappling = false
 	tween.tween_property(self, "position", checkpoint, tween_duration).set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_IN_OUT)
-	rewind_shader.emit(1.0)
+	if Time.get_unix_time_from_system() > last_restart + restart_cooldown:
+		rewind_shader.emit(1.0)
+		last_restart = Time.get_unix_time_from_system()
+		
 
 var speed : float
 var gravity : float = 19.6
@@ -174,7 +182,7 @@ func _physics_process(delta: float) -> void:
 
 
 	# INTERACTION HANDLING
-	if Input.is_action_just_pressed("restart") or position.y < -10:
+	if Input.is_action_just_pressed("restart") or position.y < -10 and !rewind_done:
 		restart()
 
 
@@ -218,6 +226,7 @@ func _physics_process(delta: float) -> void:
 					instance.position = action_arm.global_position
 					instance.position.y += 0.2
 					instance.transform.basis = action_arm.global_transform.basis
+					sandbox_sfx.play()
 					get_parent().add_child(instance)
 
 
@@ -248,8 +257,6 @@ func _physics_process(delta: float) -> void:
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 			menu.set_visible(false)
 			menu_state = 0
-
-
 
 	if Input.is_action_just_pressed("Ch1"):
 		if !hand_anim.is_playing():
