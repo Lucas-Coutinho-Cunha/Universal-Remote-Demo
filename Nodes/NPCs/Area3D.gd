@@ -9,7 +9,6 @@ func _ready() -> void:
 
 func _on_body_entered(body: CharacterBody3D) -> void:
 	if body.name == "Player" and touched == false:
-		body.checkpoint = flag.position
-		body.checkpoint.y += 0.4
+		body.checkpoint = flag.position + Vector3(0, 0.4, 1)
 		anims.play("Touched")
 		touched = true

@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://brgplr88n6ybm"]
+[gd_scene load_steps=12 format=3 uid="uid://brgplr88n6ybm"]
 
 [ext_resource type="MeshLibrary" uid="uid://ddfvvscrro1a1" path="res://Maps/Aztec.tres" id="1_8nncv"]
+[ext_resource type="Texture2D" uid="uid://c0awhpsntx17v" path="res://Graphics/rural_asphalt_road_1k.exr" id="1_kfqnp"]
 [ext_resource type="MeshLibrary" uid="uid://ccxngf0eje08f" path="res://Maps/Future.tres" id="1_wxai4"]
 [ext_resource type="MeshLibrary" uid="uid://ckasy5vnuq2af" path="res://Maps/Sandbox.tres" id="2_7g1h4"]
 [ext_resource type="MeshLibrary" uid="uid://2gmq2mxe5wm2" path="res://Maps/Plain.tres" id="4_ukrax"]
@@ -8,7 +9,15 @@
 [ext_resource type="PackedScene" uid="uid://od2wrst25bxo" path="res://Nodes/NPCs/checkpoint_flag.tscn" id="7_klq7k"]
 [ext_resource type="PackedScene" uid="uid://drkcoyvm8ubkv" path="res://Nodes/PCs/player.tscn" id="9_jjgri"]
 
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_5kmct"]
+panorama = ExtResource("1_kfqnp")
+
+[sub_resource type="Sky" id="Sky_6bt5m"]
+sky_material = SubResource("PanoramaSkyMaterial_5kmct")
+
 [sub_resource type="Environment" id="Environment_bx8uk"]
+background_mode = 2
+sky = SubResource("Sky_6bt5m")
 glow_enabled = true
 volumetric_fog_enabled = true
 volumetric_fog_density = 0.002
@@ -22,7 +31,7 @@ volumetric_fog_emission = Color(0, 0, 0.913725, 1)
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Map"]
 transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0, 0, 0)
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="Map"]
+[node name="Skybox" type="WorldEnvironment" parent="Map"]
 environment = SubResource("Environment_bx8uk")
 
 [node name="Aztec" type="Node3D" parent="Map"]
@@ -59,7 +68,6 @@ metadata/_editor_floor_ = Vector3(0, 73, 0)
 
 [node name="PlainGrid" type="GridMap" parent="Map/Plain"]
 transform = Transform3D(0.995104, 0, 0, 0, 0.995104, 0, 0, 0, 0.995104, -0.012454, -4.76837e-07, -0.0484343)
-visible = false
 mesh_library = ExtResource("4_ukrax")
 cell_size = Vector3(2, 0.25, 2)
 data = {

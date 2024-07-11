@@ -31,6 +31,12 @@ signal open_menu
 @onready var Ycol := $Ycollision
 @onready var Zcol := $Zcollision
 
+@onready var skybox := $"../Map/Skybox"
+@onready var aztec_sky := load("res://Graphics/rainforest_trail_1k.exr")
+@onready var sandbox_sky := load("res://Graphics/1200_1_.exr")
+@onready var future_sky := load("res://Graphics/beautiful-3d-illustration-background-wallpaper.exr")
+
+
 @onready var menu := $PlayerScreen/Options
 var menu_state := 0
 
@@ -133,7 +139,7 @@ func _physics_process(delta: float) -> void:
 				velocity.z = direction.z * speed
 			else:
 				velocity.x = lerp(velocity.x, direction.x * speed, delta * 7.0)
-			velocity.z = lerp(velocity.z, direction.z * speed, delta * 7.0)
+				velocity.z = lerp(velocity.z, direction.z * speed, delta * 7.0)
 		else:
 			velocity.x = lerp(velocity.x, direction.x * speed * 1.3, delta * 3.0)
 			velocity.z = lerp(velocity.z, direction.z * speed * 1.3, delta * 3.0)
@@ -154,7 +160,7 @@ func _physics_process(delta: float) -> void:
 
 
 	# INTERACTION HANDLING
-	if Input.is_action_just_pressed("restart"):
+	if Input.is_action_just_pressed("restart") or position.y < -10:
 		restart()
 
 
@@ -240,6 +246,7 @@ func _physics_process(delta: float) -> void:
 			plainmap.collision_layer = 2
 			hand_anim.play("ChannelButtonAnimation")
 			action_arm.set_visible(true)
+			skybox.environment.sky.sky_material.set_panorama(aztec_sky)
 			
 			current_anim = "GrappleUse"
 			channel_sfx.play()
@@ -264,6 +271,7 @@ func _physics_process(delta: float) -> void:
 			plainmap.collision_layer = 2
 			hand_anim.play("ChannelButtonAnimation")
 			action_arm.set_visible(false)
+			skybox.environment.sky.sky_material.set_panorama(sandbox_sky)
 			
 			current_anim = "ThrowDynamite"
 			channel_sfx.play()
@@ -287,6 +295,7 @@ func _physics_process(delta: float) -> void:
 			plainmap.collision_layer = 2
 			hand_anim.play("ChannelButtonAnimation")
 			action_arm.set_visible(false)
+			skybox.environment.sky.sky_material.set_panorama(future_sky)
 			
 			current_anim = "Pump"
 			channel_sfx.play()
