@@ -1,6 +1,6 @@
 extends SubViewport
 
-@onready var display = $Label
+@onready var display := $Label
 var frames := 0
 var seconds := 0
 var minutes := 0

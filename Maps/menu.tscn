@@ -6863,7 +6863,7 @@ script = ExtResource("1_xbc40")
 [node name="Node" type="Node3D" parent="TVBot"]
 
 [node name="Hip" type="Node3D" parent="TVBot/Node"]
-transform = Transform3D(1, 0, 0, 0, 0.999959, 0.00902873, 0, -0.00902873, 0.999959, 0, 1.54688, 0)
+transform = Transform3D(1, 0, 0, 0, 0.999634, 0.0270209, 0, -0.0270209, 0.999634, 0, 1.54688, 0)
 
 [node name="cuboid" type="MeshInstance3D" parent="TVBot/Node/Hip"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.26563, 0)
@@ -6871,7 +6871,7 @@ mesh = SubResource("ArrayMesh_5ybst")
 skeleton = NodePath("")
 
 [node name="Head" type="Node3D" parent="TVBot/Node/Hip"]
-transform = Transform3D(0.990225, 0.139472, 0, -0.139472, 0.990225, 0, 0, 0, 1, 0, 2.64063, 0)
+transform = Transform3D(0.987555, 0.157268, 0, -0.157268, 0.987555, 0, 0, 0, 1, 0, 2.64063, 0)
 
 [node name="cuboid2" type="MeshInstance3D" parent="TVBot/Node/Hip/Head"]
 transform = Transform3D(0.998843, 0.0476372, -0.00663998, -0.0472566, 0.997683, 0.0489351, 0.00895574, -0.0485647, 0.99878, 0.000652671, -0.00468159, 0.0154795)
@@ -7120,7 +7120,7 @@ mesh = SubResource("ArrayMesh_iw5bt")
 skeleton = NodePath("")
 
 [node name="Joint" type="Node3D" parent="TVBot/Node/Hip/ArmRight"]
-transform = Transform3D(0.51303, 0.267144, 0.815741, 0.668173, 0.472281, -0.574887, -0.538836, 0.839992, 0.063796, 0.0156845, 0, -1.03398)
+transform = Transform3D(0.527767, 0.252303, 0.811051, 0.657987, 0.482395, -0.578229, -0.537136, 0.838832, 0.0885798, 0.0156845, 0, -1.03398)
 
 [node name="cylinder11" type="MeshInstance3D" parent="TVBot/Node/Hip/ArmRight/Joint"]
 transform = Transform3D(0, -0.999048, -0.0436194, 1, 0, 0, 0, -0.0436194, 0.999048, 0.0624405, 0, 0.00272621)

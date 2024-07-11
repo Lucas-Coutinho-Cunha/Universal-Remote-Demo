@@ -1,4 +1,4 @@
-[gd_scene load_steps=76 format=3 uid="uid://drkcoyvm8ubkv"]
+[gd_scene load_steps=80 format=3 uid="uid://drkcoyvm8ubkv"]
 
 [ext_resource type="Script" path="res://Scripts/PCs/Player.gd" id="1_dtsbk"]
 [ext_resource type="Texture2D" uid="uid://irn5j6mcmjxi" path="res://Graphics/Crosshair.png" id="2_knkeo"]
@@ -16,6 +16,7 @@
 [ext_resource type="AudioStream" uid="uid://bbgaxl5fnygdb" path="res://Audio/NSMB Overworld theme but in minor.mp3" id="14_774mx"]
 [ext_resource type="AudioStream" uid="uid://ctiob3i0lya5e" path="res://Audio/Overworld Theme New Super Mario Bros DS.mp3" id="15_lwsf1"]
 [ext_resource type="AudioStream" uid="uid://dg7iykbdbahdt" path="res://Audio/New Super Mario Bros - Overworld [Remix].mp3" id="16_c638d"]
+[ext_resource type="Texture2D" uid="uid://g0bpj08ade2a" path="res://Graphics/Models/Rope_0.png" id="16_sapo0"]
 [ext_resource type="Texture2D" uid="uid://dyoswldjfjrhb" path="res://Graphics/Options.png" id="17_nrhur"]
 [ext_resource type="Script" path="res://Volume.gd" id="18_kq4yd"]
 [ext_resource type="Script" path="res://Nodes/PCs/CheckpointManager.gd" id="18_mk6xb"]
@@ -525,6 +526,48 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_s4h1d")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b1k5u"]
+resource_name = "material_0"
+transparency = 2
+alpha_scissor_threshold = 0.05
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_texture = ExtResource("16_sapo0")
+texture_filter = 0
+texture_repeat = false
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_ae322"]
+_surfaces = [{
+"aabb": AABB(-0.03125, -1, -0.03125, 0.06251, 2.00001, 0.06251),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray(2, 0, 1, 0, 0, 0, 2, 0, 3, 0, 1, 0, 6, 0, 5, 0, 4, 0, 6, 0, 7, 0, 5, 0, 4, 0, 2, 0, 0, 0, 4, 0, 5, 0, 2, 0, 3, 0, 6, 0, 1, 0, 3, 0, 7, 0, 6, 0, 1, 0, 4, 0, 0, 0, 1, 0, 6, 0, 4, 0, 5, 0, 3, 0, 2, 0, 5, 0, 7, 0, 3, 0),
+"name": "material_0",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray(244, 255, 254, 255, 244, 255, 0, 0, 244, 255, 0, 0, 244, 255, 0, 0, 244, 255, 254, 255, 0, 0, 0, 0, 244, 255, 0, 0, 0, 0, 0, 0, 0, 0, 254, 255, 244, 255, 0, 0, 0, 0, 254, 255, 0, 0, 0, 0, 0, 0, 0, 0, 244, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_u7stc"]
+resource_name = "blockbench_export_mesh"
+_surfaces = [{
+"aabb": AABB(-0.03125, -1, -0.03125, 0.06251, 2.00001, 0.06251),
+"attribute_data": PackedByteArray(0, 0, 0, 0, 0, 0, 255, 255, 255, 7, 0, 0, 255, 7, 255, 255, 255, 23, 0, 0, 255, 15, 0, 0, 255, 23, 255, 255, 255, 15, 255, 255, 255, 71, 255, 7, 255, 71, 0, 0, 255, 63, 255, 7, 255, 63, 0, 0, 255, 71, 255, 15, 255, 63, 255, 15, 255, 71, 255, 23, 255, 63, 255, 23, 255, 39, 0, 0, 255, 31, 0, 0, 255, 39, 255, 255, 255, 31, 255, 255, 255, 47, 0, 0, 255, 47, 255, 255, 255, 55, 0, 0, 255, 55, 255, 255),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray(2, 0, 1, 0, 0, 0, 2, 0, 3, 0, 1, 0, 6, 0, 5, 0, 4, 0, 6, 0, 7, 0, 5, 0, 10, 0, 9, 0, 8, 0, 10, 0, 11, 0, 9, 0, 14, 0, 13, 0, 12, 0, 14, 0, 15, 0, 13, 0, 18, 0, 17, 0, 16, 0, 18, 0, 19, 0, 17, 0, 22, 0, 21, 0, 20, 0, 22, 0, 23, 0, 21, 0),
+"material": SubResource("StandardMaterial3D_b1k5u"),
+"name": "material_0",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray(244, 255, 254, 255, 244, 255, 255, 191, 244, 255, 0, 0, 244, 255, 255, 191, 244, 255, 254, 255, 0, 0, 255, 191, 244, 255, 0, 0, 0, 0, 255, 191, 0, 0, 254, 255, 244, 255, 255, 191, 0, 0, 254, 255, 0, 0, 255, 191, 0, 0, 0, 0, 244, 255, 255, 191, 0, 0, 0, 0, 0, 0, 255, 191, 244, 255, 254, 255, 244, 255, 255, 191, 244, 255, 254, 255, 0, 0, 255, 191, 0, 0, 254, 255, 244, 255, 255, 191, 0, 0, 254, 255, 0, 0, 255, 191, 244, 255, 0, 0, 244, 255, 255, 191, 0, 0, 0, 0, 244, 255, 255, 191, 244, 255, 0, 0, 0, 0, 255, 191, 0, 0, 0, 0, 0, 0, 255, 191, 244, 255, 254, 255, 244, 255, 0, 128, 0, 0, 254, 255, 244, 255, 0, 128, 244, 255, 0, 0, 244, 255, 0, 128, 0, 0, 0, 0, 244, 255, 0, 128, 244, 255, 254, 255, 0, 0, 255, 255, 244, 255, 0, 0, 0, 0, 255, 255, 0, 0, 254, 255, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 255, 255, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255)
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_ae322")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_nvqn1"]
 _surfaces = [{
@@ -1634,7 +1677,7 @@ cull_mask = 524287
 far = 800.0
 
 [node name="Sprite3D" type="Sprite3D" parent="Head/Camera3D"]
-transform = Transform3D(0.970623, 0.181377, -0.158092, -0.183051, 0.983095, 0.00402991, 0.15615, 0.0250273, 0.987416, 6.95135, -3.53379, -3.41035)
+transform = Transform3D(0.970623, 0.181377, -0.158092, -0.183051, 0.983095, 0.00402991, 0.15615, 0.0250273, 0.987416, 5.41682, -4.19769, -1.94452)
 layers = 524288
 pixel_size = 0.02
 texture = SubResource("ViewportTexture_6d68u")
@@ -1678,7 +1721,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.488547, -0.620983, -1.6307
 [node name="Node" type="Node3D" parent="Head/Camera3D/Action_Arm"]
 
 [node name="Arm2" type="Node3D" parent="Head/Camera3D/Action_Arm/Node"]
-transform = Transform3D(0.67559, 0.737277, 0, -0.737277, 0.67559, 0, 0, 0, 1, -0.0913086, 0.152051, 1.22656)
+transform = Transform3D(0.675589, 0.737278, 0, -0.737278, 0.675589, 0, 0, 0, 1, -0.0913086, 0.152051, 1.22656)
 
 [node name="Arm" type="MeshInstance3D" parent="Head/Camera3D/Action_Arm/Node/Arm2"]
 transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 0.0131836, -0.0270508, -0.789063)
@@ -1722,7 +1765,7 @@ mesh = SubResource("ArrayMesh_fg55y")
 skeleton = NodePath("")
 
 [node name="Thumb" type="Node3D" parent="Head/Camera3D/Action_Arm/Node/Arm2/Hand"]
-transform = Transform3D(-0.0869221, 0.906651, -0.41283, 0.992218, 0.041708, -0.117315, -0.0891455, -0.419814, -0.903221, -0.19175, 0.269534, 0.0555403)
+transform = Transform3D(-0.0869221, 0.906651, -0.41283, 0.992218, 0.0417077, -0.117316, -0.0891461, -0.419815, -0.903221, -0.19175, 0.269534, 0.0555403)
 
 [node name="cuboid" type="MeshInstance3D" parent="Head/Camera3D/Action_Arm/Node/Arm2/Hand/Thumb"]
 transform = Transform3D(0, -0.939693, 0.34202, 2.98023e-08, -0.34202, -0.939693, 1, 2.98023e-08, 0, 0.0880962, 0.0320644, -8.61759e-11)
@@ -1740,7 +1783,7 @@ mesh = SubResource("ArrayMesh_1upe0")
 skeleton = NodePath("")
 
 [node name="finger3" type="Node3D" parent="Head/Camera3D/Action_Arm/Node/Arm2/Hand"]
-transform = Transform3D(0.473796, -0.752594, 0.457296, 0.696741, 0.637938, 0.328005, -0.538581, 0.16321, 0.826615, 0.0249589, 0.249575, -0.0516152)
+transform = Transform3D(0.473797, -0.752594, 0.457296, 0.696741, 0.637939, 0.328004, -0.538581, 0.163209, 0.826616, 0.0249589, 0.249575, -0.0516152)
 
 [node name="cuboid3" type="MeshInstance3D" parent="Head/Camera3D/Action_Arm/Node/Arm2/Hand/finger3"]
 transform = Transform3D(0, -0.939693, 0.34202, 2.98023e-08, -0.34202, -0.939693, 1, 2.98023e-08, 0, 0.0330814, -0.000712137, 1.78476e-11)
@@ -1757,7 +1800,7 @@ mesh = SubResource("ArrayMesh_icfei")
 skeleton = NodePath("")
 
 [node name="finger2" type="Node3D" parent="Head/Camera3D/Action_Arm/Node/Arm2/Hand"]
-transform = Transform3D(0.562422, -0.793353, 0.232963, 0.732963, 0.608761, 0.303603, -0.382683, 1.49012e-08, 0.92388, 0.078125, 0.03125, 0.125)
+transform = Transform3D(0.562423, -0.793352, 0.232963, 0.732962, 0.608762, 0.303603, -0.382683, -2.68221e-07, 0.92388, 0.078125, 0.03125, 0.125)
 
 [node name="cuboid5" type="MeshInstance3D" parent="Head/Camera3D/Action_Arm/Node/Arm2/Hand/finger2"]
 transform = Transform3D(0, -0.939693, 0.34202, 2.98023e-08, -0.34202, -0.939693, 1, 2.98023e-08, 0, 0.203125, 0.1875, 0.0625)
@@ -1775,7 +1818,7 @@ mesh = SubResource("ArrayMesh_37euy")
 skeleton = NodePath("")
 
 [node name="finger1" type="Node3D" parent="Head/Camera3D/Action_Arm/Node/Arm2/Hand"]
-transform = Transform3D(0.491694, -0.80427, 0.333748, 0.789818, 0.573306, 0.217962, -0.36664, 0.15643, 0.917118, 0.0293068, 0.268372, 0.0334903)
+transform = Transform3D(0.491693, -0.80427, 0.333748, 0.789818, 0.573306, 0.217962, -0.36664, 0.15643, 0.917118, 0.0293068, 0.268372, 0.0334903)
 
 [node name="cuboid7" type="MeshInstance3D" parent="Head/Camera3D/Action_Arm/Node/Arm2/Hand/finger1"]
 transform = Transform3D(0, -0.939693, 0.34202, 2.98023e-08, -0.34202, -0.939693, 1, 2.98023e-08, 0, 0.0429288, -0.00274697, -8.61759e-11)
@@ -1792,7 +1835,7 @@ mesh = SubResource("ArrayMesh_necny")
 skeleton = NodePath("")
 
 [node name="Whip" type="Node3D" parent="Head/Camera3D/Action_Arm/Node"]
-transform = Transform3D(0.945447, 0.144631, 0.291912, -0.0873732, 0.975793, -0.200484, -0.313842, 0.164042, 0.935197, -0.34375, 0.71875, -0.703125)
+transform = Transform3D(0.945447, 0.144631, 0.291911, -0.0873733, 0.975793, -0.200484, -0.313841, 0.164042, 0.935197, -0.34375, 0.71875, -0.703125)
 
 [node name="cuboid9" type="MeshInstance3D" parent="Head/Camera3D/Action_Arm/Node/Whip"]
 transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 0.109375, -0.25, 0.28125)
@@ -1800,21 +1843,26 @@ layers = 524288
 mesh = SubResource("ArrayMesh_sgy4o")
 skeleton = NodePath("")
 
-[node name="Rope" type="Node3D" parent="Head/Camera3D/Action_Arm/Node/Whip"]
+[node name="Rope" type="MeshInstance3D" parent="Head/Camera3D/Action_Arm/Node/Whip"]
+transform = Transform3D(0.928573, -1.22418, 0.209974, 0.272672, 0.714855, -0.945363, 0.251798, 3.74037, 0.249399, 1.30547, -0.952429, -3.7982)
+mesh = SubResource("ArrayMesh_u7stc")
+skeleton = NodePath("")
+
+[node name="Whiphead" type="Node3D" parent="Head/Camera3D/Action_Arm/Node/Whip"]
 transform = Transform3D(0, 0, 0, 0, 0, 0, 0, 0, 0, 0.09375, -0.25, -0.15625)
 
-[node name="tube" type="MeshInstance3D" parent="Head/Camera3D/Action_Arm/Node/Whip/Rope"]
+[node name="tube" type="MeshInstance3D" parent="Head/Camera3D/Action_Arm/Node/Whip/Whiphead"]
 layers = 524288
 mesh = SubResource("ArrayMesh_biwq1")
 skeleton = NodePath("")
 
-[node name="tube2" type="MeshInstance3D" parent="Head/Camera3D/Action_Arm/Node/Whip/Rope"]
+[node name="tube2" type="MeshInstance3D" parent="Head/Camera3D/Action_Arm/Node/Whip/Whiphead"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0625, 0, -0.09375)
 layers = 524288
 mesh = SubResource("ArrayMesh_hmpa6")
 skeleton = NodePath("")
 
-[node name="tube3" type="MeshInstance3D" parent="Head/Camera3D/Action_Arm/Node/Whip/Rope"]
+[node name="tube3" type="MeshInstance3D" parent="Head/Camera3D/Action_Arm/Node/Whip/Whiphead"]
 transform = Transform3D(-1, 1.22465e-16, 0, -1.22465e-16, -1, 0, 0, 0, 1, 0.125, 0.125, -0.203125)
 layers = 524288
 mesh = SubResource("ArrayMesh_tcabi")
@@ -1889,18 +1937,6 @@ stream = ExtResource("16_c638d")
 volume_db = -80.0
 autoplay = true
 bus = &"Music"
-
-[node name="Xcollision" type="RayCast3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.82023, 0, 0)
-target_position = Vector3(2, 0, 0)
-
-[node name="Ycollision" type="RayCast3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.34812, 0)
-target_position = Vector3(0, 3, 0)
-
-[node name="Zcollision" type="RayCast3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.890519)
-target_position = Vector3(0, 0, 2)
 
 [node name="CheckpointManager" type="Node" parent="."]
 script = ExtResource("18_mk6xb")

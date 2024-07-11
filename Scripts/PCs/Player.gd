@@ -27,9 +27,7 @@ signal open_menu
 @onready var music_future := $MusicFuture
 
 @onready var grapplecast := $Head/Camera3D/Grapplecast
-@onready var Xcol := $Xcollision
-@onready var Ycol := $Ycollision
-@onready var Zcol := $Zcollision
+@onready var rope := $Head/Camera3D/Action_Arm/Node/Whip/Rope
 
 @onready var skybox := $"../Map/Skybox"
 @onready var aztec_sky := load("res://Graphics/rainforest_trail_1k.exr")
@@ -71,8 +69,9 @@ var skilltype : int = 1
 var current_anim : String
 
 var grappling := false
+var can_grapple := true
 var hookpoint : Vector3
-var hookpoint_get = false
+var hookpoint_get := false
 
 var dynamite := load("res://Nodes/PCs/Dynamite.tscn")
 var instance : RigidBody3D
@@ -95,6 +94,7 @@ func _ready() -> void:
 	music_future.set_volume_db(-80)
 	
 	menu.set_visible(false)
+	rope.set_visible(false)
 	
 	action_arm.set_visible(false)
 	current_anim = "None"
@@ -134,6 +134,7 @@ func _physics_process(delta: float) -> void:
 	
 	if run_mode == false:
 		if is_on_floor():
+			can_grapple = true
 			if direction:
 				velocity.x = direction.x * speed
 				velocity.z = direction.z * speed
@@ -185,14 +186,16 @@ func _physics_process(delta: float) -> void:
 
 				if aztecmap.collision_layer == 1:
 					if grapplecast.is_colliding():
-						if !grappling:
+						if !grappling and can_grapple == true:
 							grappling = true
+							can_grapple = false
 							velocity = Vector3(0, 0, 0)
 						else:
 							grappling = false
 							hookpoint_get = false
 							gravity = 9.8
 							action_anim.play("GrappleLoop")
+							rope.set_visible(false)
 
 				# DYNAMITE
 
@@ -307,6 +310,7 @@ func _physics_process(delta: float) -> void:
 
 func grapple() -> void:
 	if grappling:
+		rope.set_visible(true)
 		gravity = 0
 		if !hookpoint_get:
 			hookpoint = grapplecast.get_collision_point()
@@ -319,6 +323,8 @@ func grapple() -> void:
 			hookpoint_get = false
 			gravity = 9.8
 			action_anim.play("GrappleLoop")
+			rope.set_visible(false)
+
 			
 
 
