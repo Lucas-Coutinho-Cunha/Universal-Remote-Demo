@@ -1,4 +1,4 @@
-[gd_scene load_steps=157 format=3 uid="uid://brgplr88n6ybm"]
+[gd_scene load_steps=161 format=3 uid="uid://brgplr88n6ybm"]
 
 [ext_resource type="MeshLibrary" uid="uid://c0ddo7jvuh8ym" path="res://Maps/Aztec.tres" id="1_8nncv"]
 [ext_resource type="Texture2D" uid="uid://c0awhpsntx17v" path="res://Graphics/rural_asphalt_road_1k.exr" id="1_kfqnp"]
@@ -9,6 +9,10 @@
 [ext_resource type="PackedScene" uid="uid://od2wrst25bxo" path="res://Nodes/NPCs/checkpoint_flag.tscn" id="7_klq7k"]
 [ext_resource type="PackedScene" uid="uid://drkcoyvm8ubkv" path="res://Nodes/PCs/player.tscn" id="9_jjgri"]
 [ext_resource type="Material" uid="uid://5eow4yjl6t1f" path="res://Materials/Speed.tres" id="9_pdppj"]
+[ext_resource type="Script" path="res://Maps/ShaderController2.gd" id="9_voewv"]
+[ext_resource type="Material" uid="uid://kkg82psd6yx1" path="res://Materials/CRT.tres" id="10_soq5n"]
+[ext_resource type="Script" path="res://Maps/ShaderController.gd" id="10_vjox5"]
+[ext_resource type="Material" uid="uid://e1yg3moakgo4" path="res://Materials/Rewind.tres" id="10_xcy5i"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_5kmct"]
 panorama = ExtResource("1_kfqnp")
@@ -3965,12 +3969,37 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 154.29
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.53978, 1.5804, 4.75818)
 tween_duration = 0.5
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+script = ExtResource("9_voewv")
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer2"]
 material = ExtResource("9_pdppj")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="CanvasLayer3" type="CanvasLayer" parent="."]
+script = ExtResource("10_vjox5")
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer3"]
+material = ExtResource("10_xcy5i")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+material = ExtResource("10_soq5n")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="rewind_shader" from="Player" to="CanvasLayer3" method="_on_player_rewind_shader"]
+[connection signal="speed_shader" from="Player" to="CanvasLayer2" method="_on_player_speed_shader"]

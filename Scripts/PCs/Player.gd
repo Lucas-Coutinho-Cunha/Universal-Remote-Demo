@@ -1,6 +1,8 @@
 extends CharacterBody3D
 
 signal open_menu
+signal speed_shader
+signal rewind_shader
 
 @onready var head := $Head
 @onready var camera := $Head/Camera3D
@@ -16,6 +18,8 @@ signal open_menu
 
 @onready var hand_anim := $Head/Camera3D/Arm/AnimationPlayer
 @onready var action_anim := $Head/Camera3D/Action_Arm/AnimationPlayer
+
+@onready var restart_canvas_layer := $"../CanvasLayer3"
 
 @onready var aztecmap := $"../Map/Aztec/AztecGrid"
 @onready var sandboxmap := $"../Map/Sandbox/SandboxGrid"
@@ -49,9 +53,10 @@ var checkpoints_taken := 0
 func restart() -> void:
 	var tween : Tween = create_tween()
 	set_visible(false)
+	rewind_shader.emit(true)
 	grappling = false
-	tween.tween_property(self, "position", checkpoint, tween_duration)
-	hookpoint_get = false
+	tween.tween_property(self, "position", checkpoint, tween_duration).set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_IN_OUT)
+	rewind_shader.emit(1.0)
 
 var speed : float
 var gravity : float = 19.6
@@ -222,6 +227,7 @@ func _physics_process(delta: float) -> void:
 					if run_mode == false:
 						future_sfx.play()
 						run_mode = true
+						speed_shader.emit(true)
 						current_direction.x = clamp(direction.x, -1, 1) * 1.5
 						current_direction.z = clamp(direction.z, -1, 1) * 1.5
 						
@@ -230,6 +236,7 @@ func _physics_process(delta: float) -> void:
 
 	if Input.is_action_just_released("M2"):
 		run_mode = false
+		speed_shader.emit(false)
 
 
 	if Input.is_action_just_pressed("menu"):

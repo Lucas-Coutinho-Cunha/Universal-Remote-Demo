@@ -1,13 +1,15 @@
-[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://5eow4yjl6t1f"]
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://5eow4yjl6t1f"]
 
 [ext_resource type="Shader" path="res://Shaders/Speed.gdshader" id="1_pvpxx"]
+[ext_resource type="Texture2D" uid="uid://c7c6ivg41bn84" path="res://Materials/noise.jpg" id="2_g0wwg"]
 
 [resource]
 shader = ExtResource("1_pvpxx")
 shader_parameter/line_color = Color(1, 1, 1, 1)
 shader_parameter/line_count = 2.0
-shader_parameter/line_density = 0.067
-shader_parameter/line_faloff = 0.25
-shader_parameter/mask_size = 0.1
-shader_parameter/mask_edge = 0.5
-shader_parameter/animation_speed = 0.5
+shader_parameter/line_density = 0.154
+shader_parameter/line_faloff = 0.266
+shader_parameter/mask_size = 0.0
+shader_parameter/mask_edge = 0.533
+shader_parameter/animation_speed = 12.581
+shader_parameter/noise = ExtResource("2_g0wwg")
