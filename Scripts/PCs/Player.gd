@@ -27,7 +27,6 @@ signal open_menu
 @onready var music_future := $MusicFuture
 
 @onready var grapplecast := $Head/Camera3D/Grapplecast
-@onready var rope := $Head/Camera3D/Action_Arm/Node/Whip/Rope
 
 @onready var skybox := $"../Map/Skybox"
 @onready var aztec_sky := load("res://Graphics/rainforest_trail_1k.exr")
@@ -43,16 +42,21 @@ var menu_state := 0
 @export var tween_duration : float
 var checkpoint_lerp_t : float
 
+@onready var timer_display = $Head/Camera3D/Sprite3D/SubViewport
+var checkpoints_taken := 0
+
+
 func restart() -> void:
 	var tween : Tween = create_tween()
 	set_visible(false)
+	grappling = false
 	tween.tween_property(self, "position", checkpoint, tween_duration)
 
 var speed : float
-var gravity : float = 9.8
+var gravity : float = 19.6
 const SPRINT_SPEED : float = 8.0
 const WALK_SPEED : float = 5.0
-const JUMP_VELOCITY : float = 7.5
+const JUMP_VELOCITY : float = 12
 const SENSITIVITY : float = 0.003
 
 #Bobbing
@@ -94,7 +98,6 @@ func _ready() -> void:
 	music_future.set_volume_db(-80)
 	
 	menu.set_visible(false)
-	rope.set_visible(false)
 	
 	action_arm.set_visible(false)
 	current_anim = "None"
@@ -112,6 +115,10 @@ func _process(_delta: float) -> void:
 
 
 func _physics_process(delta: float) -> void:
+
+	if checkpoints_taken == 6:
+		timer_display.game_running = false
+		
 
 	if position == checkpoint:
 		set_visible(true)
@@ -193,9 +200,9 @@ func _physics_process(delta: float) -> void:
 						else:
 							grappling = false
 							hookpoint_get = false
-							gravity = 9.8
+							gravity = 19.6
 							action_anim.play("GrappleLoop")
-							rope.set_visible(false)
+
 
 				# DYNAMITE
 
@@ -310,7 +317,6 @@ func _physics_process(delta: float) -> void:
 
 func grapple() -> void:
 	if grappling:
-		rope.set_visible(true)
 		gravity = 0
 		if !hookpoint_get:
 			hookpoint = grapplecast.get_collision_point()
@@ -321,11 +327,12 @@ func grapple() -> void:
 		else:
 			grappling = false
 			hookpoint_get = false
-			gravity = 9.8
+			gravity = 19.6
 			action_anim.play("GrappleLoop")
-			rope.set_visible(false)
+	else:
+		hookpoint_get = false
+		gravity = 19.6
 
-			
 
 
 
